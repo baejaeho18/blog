@@ -48,6 +48,39 @@ author:
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
+# Add links to the sidebar
+menu:
+  - title:             Study
+    url:               /study/
+    submenu:
+      - title:  Certificate
+        url:    /certificate/
+      - title:  Paper
+        url:    /paper/
+      - title:  CodingTest
+        url:    /codingtest/
+  - title:             Project
+    url:               /project/
+    submenu:
+      - title:  IoT
+        url:    /iot/
+      - title:  Vision
+        url:    /vision/
+      - title:  CS
+        url:    /cs/
+      - title:  Blog
+        url:    /blog/
+  - title:             Blog
+    url:               /blog/
+    submenu:
+      - title:  Exercise
+        url:    /exercise/
+      - title:  Travel
+        url:    /travel/
+  - title:             About
+    url:               /about/
+  
+
 # This text will appear in a `<small>` tag in the footer of every page.
 copyright:             © 2017. All rights reserved.
 
