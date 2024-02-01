@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 블로그를 시작하며
-tags: [blog]
+tags: [Blog]
 author: jaeho
 ---
 
