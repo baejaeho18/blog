@@ -1,17 +1,74 @@
 ---
 layout: post
-title: 블로그를 시작하며
+title: 1. 댓글 및 검색창 추가
 tags: [Blog]
 author: jaeho
 comments: true
 ---
 
-Jekyll의 Hydejack 템플릿을 기반으로 블로그를 만들었다.
-그동안 진행했던 프로젝트와 공부, 연구들을 이곳에 옮기며 복습정리하고자 한다. 더불어 앞으로 진행할 프로젝트에서 겪을 시행착오와 새로운 정보들을 잘 정리해보겠다.
-그 과정에서 웹과 git에 친숙해지길 기대한다.
+주어진 템플릿만으로는 맘에 들지 않아서 댓글 기능과 게시물 검색 기능을 추가해봤다.
 
-시작은 본 템플릿만으로는 맘에 들지 않아서 여러가지 기능을 추가하는 것이 될 것 같다.
-지금의 제한적인 카테고리를 좀 더 확장할 것이고, 댓글 기능과 게시물 검색 기능을 추가할 생각이다.
-더 필요한 기능들이 있겠지만, 차차 추가해보도록 하겠다.
+1.1 댓글 기능 추가하기
+댓글 기능은 Utterances 오픈소스를 활용했다.
+Utterances는 Github의 Issue 기능을 사용해 댓글을 생성한다. 각 게시글마다 이슈가 하나씩 매핑이 되고, 게시글에 댓글을 달면 해당 이슈에 댓글이 달린다. 댓글창은 ifame으로 동작하며, Github의 Markdown 문법을 그대로 사용 가능하다.
+또한 방문자가 Github 계정이 있다면 별도의 가입이나 로그인 절차 없이도 댓글을 작성할 수 있다.
 
-여기에 노션처럼 todo 목록을 캘린더와 함께 표시해주는 것도 나를 위해 나쁘지 않을 것 같다.
+가장 먼저, Issue를 저장할 Github Repository를 Public으로 생성한다. Private으로 생성한다면, 다른 사람들이 Issue에 연동된 댓글을 볼 수 없다.
+
+https://github.com/baejaeho18/blog-comments-repo.git
+
+Uttenrace Gihub Ap(https://github.com/apps/utterances)에 접속해 설치한다. install 버튼만 누르면 된다.
+Repository access에서 앞서 생성한 Repository와 연결하도록 세팅한다.
+
+마지막으로 Utterances 공식 홈페이지(https://utteranc.es/)에서 스크립트 코드를 생성 및 복사한다.
+- Profile/Repository
+- Post <-> Issue Mapping
+- Issue Label(optional)
+- Theme
+
+1.2 검색창 추가
+원하는 게시물을 검색하는 창을 만들려고 한다.
+
+Jekyll에서 지원해주는 템플릿을 사용하겠다.
+https://github.com/jekylltools/jekyll-tipue-search
+
+* 위 링크에서 다운로드 받은 search.html 파일을 root/search.html에 복사한다.
+* assets/tiquesearch 디렉토리를 root/assets/tiquesearch에 복사한다. 
+* _config.yml 파일에 아래 코드를 추가한다.
+
+tipue_search:
+     include:
+         pages: false
+         collections: []
+     exclude:
+         files: [search.html, index.html, tags.html]
+         categories: []
+         tags: []
+
+* _includes/head.html 파일에 아래 코드를 추가한다.
+
+<!-- tipuesearch -->
+ <link rel="stylesheet" href="/assets/tipuesearch/css/tipuesearch.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="/assets/tipuesearch/tipuesearch_content.js"></script>
+ <script src="/assets/tipuesearch/tipuesearch_set.js"></script>
+ <script src="/assets/tipuesearch/tipuesearch.min.js"></script>
+
+ * search.html 파일의 tiquesearch 함수에 다음 parameter를 추가한다.
+
+'wholeWords' : false,
+'showTime'   : false,
+'minimumLength' : 1
+
+* 검색창을 넣을 위치의 파일에 다음 코드를 추가한다.
+
+<form action="/search">
+   <div class="tipue_search_left">
+     <img src="/assets/tipuesearch/search.png" class="tipue_search_icon">
+   </div>
+   <div class="tipue_search_right">
+     <input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required></div>
+   <div style="clear: both;"></div>
+ </form>
+
+ * assets\tipuesearch\css\tipuesearch.css 파일에서 css 값들을 조정한다.
