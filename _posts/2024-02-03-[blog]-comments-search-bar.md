@@ -48,7 +48,7 @@ tipue_search:
 ```
 
 4. _includes/head.html 파일에 아래 코드를 추가한다.
-```
+```js
 <!-- tipuesearch -->
 <link rel="stylesheet" href="/assets/tipuesearch/css/tipuesearch.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -58,7 +58,7 @@ tipue_search:
 ```
 
 5. search.html 파일의 tiquesearch 함수에 다음 parameter를 추가한다.
-```
+```js
 {
   'wholeWords' : false,
   'showTime'   : false,
@@ -67,7 +67,7 @@ tipue_search:
 ```
 
 6. 검색창을 넣을 위치의 파일에 다음 코드를 추가한다.
-```
+```js
 <form action="/search">
    <div class="tipue_search_left">
      <img src="/assets/tipuesearch/search.png" class="tipue_search_icon">
