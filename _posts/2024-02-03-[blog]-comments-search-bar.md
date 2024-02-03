@@ -36,6 +36,7 @@ https://github.com/jekylltools/jekyll-tipue-search)을 사용하겠다.
 2. assets/tiquesearch 디렉토리를 root/assets/tiquesearch에 복사한다. 
 
 3. _config.yml 파일에 아래 코드를 추가한다.
+
 ```js
 tipue_search:
      include:
@@ -48,6 +49,7 @@ tipue_search:
 ```
 
 4. _includes/head.html 파일에 아래 코드를 추가한다.
+
 ```js
 <!-- tipuesearch -->
 <link rel="stylesheet" href="/assets/tipuesearch/css/tipuesearch.css">
@@ -58,7 +60,8 @@ tipue_search:
 ```
 
 5. search.html 파일의 tiquesearch 함수에 다음 parameter를 추가한다.
-```js
+
+```javascript
 {
   'wholeWords' : false,
   'showTime'   : false,
@@ -67,7 +70,8 @@ tipue_search:
 ```
 
 6. 검색창을 넣을 위치의 파일에 다음 코드를 추가한다.
-```js
+
+```html
 <form action="/search">
    <div class="tipue_search_left">
      <img src="/assets/tipuesearch/search.png" class="tipue_search_icon">
