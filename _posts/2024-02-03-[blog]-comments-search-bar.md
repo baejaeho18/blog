@@ -2,7 +2,7 @@
 layout: post
 title: 1. 댓글 및 검색창 추가
 tags: [Blog]
-author: jaeho
+author: author1
 comments: true
 ---
 
