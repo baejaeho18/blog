@@ -3,7 +3,7 @@ layout: post
 title: [IoT] 1. 라즈베리파이 세팅
 description:
     CCTV 관제 서비스를 WiFi-Halow를 사용하여 구축하고자 한다.
-tags: [Project], [iot]
+tags: [Project]
 author: jaeho
 comments: true
 ---
@@ -14,10 +14,26 @@ comments: true
 * 웹서비스를 구동시킬 웹서버 1개
 
 1.0 기초적인 세팅부터 시작하자.
+우선 라즈베리파이 OS를 다운로드 받아보자.
+https://www.raspberrypi.com/software/operating-systems/
+SD 카드에 Raspberry Pi Imager를 사용해 OS를 굽고, 부팅하면 입력한 세팅대로 운영체제가 설치된다.
+
+참조 : https://ryan-han.com/post/dev/raspberry_server_1/
+
+sudo raspi-config
 - 네트워크 연결
+Network Options -> Wi-fi Enter SSID and passphrase
+iwconfig
+/etc/wpa_supplicant/wpa_supplicant.conf
 - ssh 연결
+Interface Option -> SSH -> YES
+ifconfig
+wlan0 / inet addr : 일반적으로 192.168.0.4
+(내부망) ssh {id}@{내부 ip}
+(외부망) ssh -p {외부포트} {id}@{외부IP 혹은 도메인명}
 
 1.1 cctv 노드를 만들어보자.
+https://github.com/InternetOfTough/CCTV_HaLow/tree/gRPC
 
 
 1.2 웹서버를 만들어보자.
