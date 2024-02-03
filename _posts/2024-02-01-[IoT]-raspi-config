@@ -64,7 +64,15 @@ service mariadb start
 DB에 접속이 정상적으로 되는지 확인한다. 첫 접속이라면 root로 접속한다.
 mysql -u {유저명}
 
+이제 root가 아닌 계정을 생성하고 권한을 부여해주자. 먼저 DB에 접속하여 root가 어떤 권한을 가지고 있는지 확인하겠다.
+show grants for current_user;
+Tip! DB 명령어는 모두 뒤에 세미콜론 ';' 을 붙인다.
+use mysql
+grant all privileges on . to '[id]'@'[원격접속권한여부]' identified by '[pwd]' require none with grant option;
+show grants for [id]
+quit 또는 \q로 DB를 종료하여 생성한 계정으로 접속되는지 확인한다.
 
+- php
 
 - spring boot
 
