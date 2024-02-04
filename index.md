@@ -21,22 +21,20 @@ redirect_from:
 
 > 📝 Computer System, Cybersecurity, Software Engineering
 
-저에게 조금 관심이 생기셨다면 [Github](https://github.com/baejaeho18)를 확인해주시면 감사하겠습니다! 😃
+저에게 조금 관심이 생기셨다면 [Github](https://github.com/baejaeho18)를 확인해주세요! 😃
 
 <div class="me">
-    <div><img src= "/assets/img/me/me0.jpg"></div>
-    <div><img src= "/assets/img/me/me1.jpg"></div>
-    <div><img src= "/assets/img/me/me2.jpg"></div>
-    <div><img src= "/assets/img/me/me3.jpg"></div>
-    <div><img src= "/assets/img/me/me4.jpg"></div>
-    <div><img src= "/assets/img/me/me5.jpg"></div>
+  <div><img src= "/assets/img/me/me0.jpg"></div>
+  <div><img src= "/assets/img/me/me1.jpg"></div>
+  <div><img src= "/assets/img/me/me2.jpg"></div>
+  <div><img src= "/assets/img/me/me3.jpg"></div>
+  <div><img src= "/assets/img/me/me4.jpg"></div>
+  <div><img src= "/assets/img/me/me5.jpg"></div>
 </div>
 
-  <script>
-    $(document).ready(function(){
-      $('.me').slick();
-    });
-  </script>
+<script>
+  $(document).ready(function(){$('.me').slick();});
+</script>
 
 
 ---
