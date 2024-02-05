@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 0. 블로그를 시작하며
-tags: [Blog]
+tags: [blog]
 author: author1
 comments: true
 ---

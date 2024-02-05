@@ -1,7 +1,7 @@
 ---
 layout: post
 title: [IoT] 0. background research
-tags: [Project], [iot]
+tags: [project], [iot]
 author: author1
 ---
 

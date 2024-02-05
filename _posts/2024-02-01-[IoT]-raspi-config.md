@@ -1,9 +1,9 @@
 ---
 layout: post
 title: [IoT] 1. 라즈베리파이 세팅
-description:
+description: >
     CCTV 관제 서비스를 WiFi-Halow를 사용하여 구축하고자 한다.
-tags: [Project]
+tags: [project]
 author: author1
 comments: true
 ---

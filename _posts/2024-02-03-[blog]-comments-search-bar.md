@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 1. 댓글 및 검색창 추가
-description:
+description: >
   주어진 템플릿만으로는 맘에 들지 않아서 댓글 기능과 게시물 검색 기능을 추가해봤다.
-tags: [Blog]
+tags: [blog]
 author: author1
 comments: true
 ---
@@ -54,7 +54,7 @@ tipue_search:
 <script src="/assets/tipuesearch/tipuesearch.min.js"></script>
 ```
 5. search.html 파일의 tiquesearch 함수에 다음 parameter를 추가한다.
-```javascript
+```js
 {
   'wholeWords' : false,
   'showTime'   : false,
