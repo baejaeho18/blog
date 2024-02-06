@@ -1,8 +1,9 @@
 ---
 layout: post
-title: [IoT] 0. background research
+title: "[IoT] 0. background research"
 tags: [project], [iot]
 author: author1
+comments: true
 ---
 
 IoT 프로젝트로 CCTV 관제 서비스를 3명의 팀원들과 함께 구축하려고 한다.
