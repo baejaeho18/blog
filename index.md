@@ -19,7 +19,7 @@ redirect_from:
 
 제 **관심분야**는 다음과 같습니다.
 
-> 📝 Computer System, Cybersecurity, Software Engineering
+> 📝 Computer System, Cybersecurity, AI, Software Engineering
 
 저에게 조금 관심이 생기셨다면 [Github](https://github.com/baejaeho18)를 확인해주세요! 😃
 
