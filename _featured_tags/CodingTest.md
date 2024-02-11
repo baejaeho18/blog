@@ -1,10 +1,10 @@
 ---
 lyout: tag-list
 type: tag
-title: AI
-slug: ai
+title: CodingTest
+slug: codingtest
 category: study
 sidebar: true
 description: >
-    Let's go to the future!
+    Ready for Vision
 ---

@@ -3,7 +3,6 @@ layout: list
 type: category
 title: Study
 slug: study
-menu: true
 sidebar: true
 order: 2
 description: >

@@ -4,7 +4,7 @@ title: About
 description: >
   내가 알고있던 것들이 서서히 잊혀진다는 것을 느끼고 복습과 정리를 하기 위한 공간을 만들었습니다.
   앞으로 헤쳐나갈 공부들을 기록해보도록 하겠습니다.
-menu: true
+sidebar: true
 order: 5
 ---
 

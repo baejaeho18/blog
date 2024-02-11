@@ -3,7 +3,6 @@ layout: list
 type: category
 title: Blog
 slug: blog
-menu: true
 sidebar: true
 order: 4
 description: >
