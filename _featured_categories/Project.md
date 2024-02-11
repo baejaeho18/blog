@@ -1,8 +1,10 @@
 ---
 layout: list
+type: category
 title: Project
 slug: project
 menu: true
+sidebar: true
 order: 3
 description: >
   개인 혹은 팀 프로젝트의 시행착오들
