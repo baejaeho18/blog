@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "[IoT] 0. background research"
-tags: [project]
+category: project
+tags: iot
 author: author1
 comments: true
 ---

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 2. 웹서버 구동하기(1)
-tags: [project]
+category: project
+tags: iot
 author: author1
 comments: true
 ---

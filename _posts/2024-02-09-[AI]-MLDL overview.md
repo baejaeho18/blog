@@ -1,7 +1,8 @@
 ---
 layout: post
 title: ML&DL 복습하기
-tags: [study]
+category: study
+tags: ai
 author: author1
 comments: true
 ---
