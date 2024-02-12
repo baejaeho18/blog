@@ -226,7 +226,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-titles-from-headings
-  - jekyll-include-cache
+  - jekyll-include-cache    # include_cached build falure solved
   - jekyll-last-modified-at
 
 # Theme
