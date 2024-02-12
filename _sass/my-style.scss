@@ -1,137 +1,137 @@
-// 메뉴
-.spread-btn{
-    right: 15%;
-    position: absolute;
-    padding: 0;
-    padding-top: 2px;
-    border: none;
-    background: none;
-    color: white;
-    cursor: pointer;
-    z-index: 1;
-  }
-  .menu-wrapper {
-    text-align: left;
-    margin-left: 30%;
-  }
-  .submenu.menu-wrapper{
-    right: 10%;
-    position: absolute;
-    background-color: rgb(34,31,32);
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    width: 10rem;
-    z-index: 5;
-    ul{
-      margin: 0;
-      padding: 0 1.25rem;
-    }
-  }
-  .submenu.menu-wrapper.hide{
-    display: none;
-  }
+// applause-button
 
-// https://github.com/LazyRen/LazyRen.github.io/commit/6c28ca9d838b7100e2d478a256dae7d12aeb3ada
-.dl-table {
-  a {
-    @supports ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
-      text-underline-offset: .7rem;
-    }
-    @supports not ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
-      padding-bottom: .3rem;
-    }
-  }
-  .btn, .gumroad-button  {
-    margin: 1rem 0;
+applause-button {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+
+  .count-container {
+    color: inherit;
   }
 }
 
-// Remove menu button from the top
-#_menu {
-  display:none;
+.clap-count {
+  @extend h4;
+  color: var(--accent-color);
+  display: none;
+
+  svg {
+    height: 1em;
+    vertical-align: middle;
+    width: 1em;
+  }
+
+  .flat {
+    fill: var(--body-bg);
+  }
+
+  .outline {
+    fill: var(--accent-color);
+  }
 }
 
-// Sidebar Modification
+// Utterances
 
-.sidebar {
-  text-align: center;
+.utterances {
+  max-width: 100%;
 }
 
-.sidebar-sticky {
-  position: absolute;
-  height: 95%;
-  padding-top: 5%;
-  opacity: 1;
+// Giscus
+
+.giscus,
+.giscus-frame {
+  width: 100%;
 }
 
-.sidebar-nav-item {
-  width:100%;
-  // font-weight: normal;
-  padding: .25rem 0;
-}
-
-.sidebar-nav-subitem {
-  @extend .f4;
-  // font-weight: normal;
-  display: inline-block;
-  // line-height: 1.75;
-  padding: .25rem 0;
-}
-
-.list-wrapper {
-  text-align: left;
-  display: flex;
-}
-
-.list-body {
-  text-align: left;
-  margin: 4px;
-}
-
-// Submenu Insertion
-
-.folder {
-  color: #fff;
-  font-size: x-large;
-  position: absolute;
-  cursor: pointer;
-  right: 30px;
-}
-
-.folder:hover {
-  color: #4FB1BA;
-}
-
-input[type="checkbox"]{
-  position: absolute;
-  left: -9999px;
-}
-
-input[type="checkbox"] ~ ul{
-  height: 0;
-  transform: scaleY(0);
-}
-
-input[type="checkbox"]:checked ~ ul{
-  list-style: none;
-  height: 100%;
-  transform-origin: top;
-  transition: transform .2s ease-out;
-  transform: scaleY(1);
+.giscus-frame {
+  border: none;
 }
 
 // Resume
 
 .project-date {
-  font-weight:var(--font-weight);
-  display:inline;
+  font-weight: var(--font-weight);
+  display: inline;
 }
 
 // Printing
 
 @media print {
-   a[href]:after {
-      display: none;
-      visibility: hidden;
-   }
+  a[href]:after {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+// Image centering
+
+.text-align-center {
+  text-align: center;
+}
+
+img.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// iframe
+
+.iframe-container {
+  overflow: hidden;
+  /* 16:9 aspect ratio */
+  padding-top: 56.25%;
+  position: relative;
+  margin: 1rem;
+}
+
+.iframe-container iframe {
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+// Codeblock
+
+div.highlight {
+
+  >.pre-header {
+    overflow: hidden;
+
+    > span {
+      font-family: var(--code-font-family);
+    }
+  }
+}
+
+.highlighter-rouge {
+  border-radius: 0.7em;
+}
+
+// Fancy Codeblock Scrollbar
+
+pre {
+  border-color: transparent;
+  transition: border-color 0.5s ease;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: auto;
+  }
+
+  &:hover {
+    border-color: var(--gray);
+    transition: border-color 0.2s ease;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-color: inherit;
+    border-radius: 10px;
+    border-right-style: inset;
+    border-right-width: calc(100vw + 100vh);
+  }
 }

@@ -19,10 +19,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-layout: base
+layout: page
 ---
 
-{% assign posts = site.categories[page.slug] | default:site.tags[page.slug] | default:site.posts %}
+<!-- {% assign posts = site.categories[page.slug] | default:site.tags[page.slug] | default:site.posts %}
 
 {% if page.title.size > 0 %}
   <header>
@@ -30,7 +30,7 @@ layout: base
     {% include message.html text=page.description hide=page.hide_description %}
   </header>
   <hr class="sr-only"/>
-{% endif %}
+{% endif %} -->
 
 {{ content }}
 
@@ -38,14 +38,21 @@ layout: base
 {% assign list_group_by = date_formats.list_group_by | default:"%Y"    %}
 {% assign list_entry    = date_formats.list_entry    | default:"%d %b" %}
 
+{% assign posts = site.categories[page.slug] | default:site.tags[page.slug] | default:site.posts %}
+
+{% assign prev_date = 0 %}
+{% if page.no_groups %}<ul class="related-posts">{% endif %}
+
 {% for post in posts %}
   {% assign currentdate = post.date | date:list_group_by %}
-  {% if currentdate != date %}
-    {% unless forloop.first %}</ul>{% endunless %}
-    <h2 id="{{ list_group_by | slugify }}-{{ currentdate | slugify }}" class="hr">{{ currentdate }}</h2>
-    <ul class="related-posts">
-    {% assign date = currentdate %}
-  {% endif %}
-  {% include post-list-item.html post=post format=list_entry %}
+  {% unless page.no_groups %}
+    {% if currentdate != prev_date %}
+      {% unless forloop.first %}</ul>{% endunless %}
+      <h2 id="{{ list_group_by | slugify }}-{{ currentdate | slugify }}" class="hr">{{ currentdate }}</h2>
+      <ul class="related-posts">
+      {% prev_date = currentdate %}
+    {% endif %}
+  {% endunless %}
+  {% include_cached components/post-list-item.html post=post format=list_entry %}
   {% if forloop.last %}</ul>{% endif %}
 {% endfor %}
