@@ -1,8 +1,8 @@
 ---
 lyout: tag-list
 type: tag
-title: Blog
-slug: blog
+title: GithubBlog
+slug: githubblog
 category: project
 sidebar: true
 description: >
