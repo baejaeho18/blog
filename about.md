@@ -28,6 +28,7 @@ Hi, I'm **Jaeho Bae**.<br>
   <div><img src="/assets/img/me/me5.jpg"></div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
   $(document).ready(function(){$('.me').slick();});
 </script>
@@ -39,10 +40,6 @@ Hi, I'm **Jaeho Bae**.<br>
 ***
 
 Blog created by Jaeho Bae, based on the jekyll theme [Hydejack].
-
-***
-
-<!--author-->
 
 <!-- Links -->
 [한동대학교]: https://www.handong.edu/kor/
