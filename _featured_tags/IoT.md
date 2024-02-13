@@ -1,10 +1,10 @@
 ---
 lyout: tag-list
 type: tag
-title: Blog
-slug: blog
+title: IoT
+slug: iot
 category: project
 sidebar: true
 description: >
-    Make up my own blog
+    IoT Study
 ---

@@ -1,10 +1,10 @@
 ---
 lyout: tag-list
 type: tag
-title: Blog
-slug: blog
+title: SignLanguage
+slug: signlanguage
 category: project
 sidebar: true
 description: >
-    Make up my own blog
+    수화 인식 프로젝트
 ---
