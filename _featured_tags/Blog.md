@@ -1,10 +1,10 @@
 ---
-lyout: tag-list
+layout: tag-list
 type: tag
 title: Blog
 slug: blog
-category: project
+category: devlog
 sidebar: true
 description: >
-    Make up my own blog
+   Posts about blogging / jekyll theme.
 ---
