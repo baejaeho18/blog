@@ -1,10 +1,10 @@
 ---
 layout: list
 type: category
-title: Study Log
-slug: studylog
+title: Blog
+slug: blog
 sidebar: true
-order: 3
+order: 4
 description: >
-  Log study results
+  개인적인 흥밋거리들
 ---

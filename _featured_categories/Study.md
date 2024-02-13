@@ -1,10 +1,10 @@
 ---
 layout: list
 type: category
-title: Dev. Log
-slug: devlog
+title: Study
+slug: study
 sidebar: true
 order: 2
 description: >
-  Anything about development
+  복습과 정리를 위한 공간
 ---
