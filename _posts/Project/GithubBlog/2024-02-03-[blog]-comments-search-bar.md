@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "1. 댓글 및 검색창 추가"
+title: "[GithubBlog] 1. 댓글 및 검색창 추가"
 category: project
 tags: githubblog
 author: author1

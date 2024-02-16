@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ML&DL 복습하기
+title: "[AI] 0. ML&DL 복습하기"
 category: study
 tags: ai
 author: author1
