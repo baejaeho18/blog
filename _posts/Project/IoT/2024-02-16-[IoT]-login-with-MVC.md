@@ -18,10 +18,11 @@ home의 우측에는 cctv 상태 정보가 포함된 목록이 있다. cctv 목�
 # 4.2 로그인 화면 구현
 > /login.html
 첫 화면을 로그인/회원가입 화면으로 한다. 회원가입 후, 자동으로 로그인을 진행한다. 로그인이 완료되면 home 화면으로 이동한다.
+
 ```java
 package com.example.demo.Config;
 
-import ...
+import {..}
 
 @Configuration
 @EnableWebSecurity
@@ -59,11 +60,11 @@ public class SecurityConfig {
     }
 }
 ```
+
 인터넷 블로그들에 퍼져있는 정보들은 대부분 SpringSecurity 라이브러리 3.0 버전 이전이라 에러들이 많았다. 3.0 버전 이전과 이후를 비교한 [블로그]도 있다.
 따라서 spring [정규문서]로 들어가 어떻게 변했는지 직접 확인해야 했다. 해당 문서를 읽어보니 github에도 sample code들이 작성되어 있었다. [spring-security-samples] 레포지토리에서 필요한 코드들을 찾아 작성했다.
 
 위 코드는 각 페이지들에 대한 접근 권한과 login 후 redirect할 path를 정의하고, default로 user와 admin 유저 두 명을 저장한다.
-
 
 
 <!-- reference -->
