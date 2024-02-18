@@ -46,6 +46,7 @@ tipue_search:
          tags: []
 ```
 4. _includes/head.html 파일에 아래 코드를 추가한다.
+
 ```js
 <!-- tipuesearch -->
 <link rel="stylesheet" href="/assets/tipuesearch/css/tipuesearch.css">
@@ -54,7 +55,9 @@ tipue_search:
 <script src="/assets/tipuesearch/tipuesearch_set.js"></script>
 <script src="/assets/tipuesearch/tipuesearch.min.js"></script>
 ```
+
 5. search.html 파일의 tiquesearch 함수에 다음 parameter를 추가한다.
+
 ```js
 {
   'wholeWords' : false,
@@ -62,7 +65,9 @@ tipue_search:
   'minimumLength' : 1
 }
 ```
+
 6. 검색창을 넣을 위치의 파일에 다음 코드를 추가한다.
+
 ```html
 <form action="/search">
    <div class="tipue_search_left">
@@ -73,4 +78,5 @@ tipue_search:
    <div style="clear: both;"></div>
  </form>
 ```
+
 7. assets\tipuesearch\css\tipuesearch.css 파일에서 css 값들을 조정한다.
