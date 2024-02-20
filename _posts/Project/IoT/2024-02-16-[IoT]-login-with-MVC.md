@@ -67,7 +67,7 @@ public class SecurityConfig {
 위 코드는 각 페이지들에 대한 접근 권한과 login 후 redirect할 path를 정의하고, default로 user와 admin 유저 두 명을 저장한다.
 
 
-<!-- reference -->
-[블로그] https://this-circle-jeong.tistory.com/162
-[정규문서] https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html
-[spring-security-samples] https://github.com/spring-projects/spring-security-samples/blob/main/servlet/java-configuration/authentication/username-password/in-memory/src/main/java/example/SecurityConfiguration.java
+<!-- Links -->
+[블로그]: https://this-circle-jeong.tistory.com/162
+[정규문서]: https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html
+[spring-security-samples]: https://github.com/spring-projects/spring-security-samples/blob/main/servlet/java-configuration/authentication/username-password/in-memory/src/main/java/example/SecurityConfiguration.java
