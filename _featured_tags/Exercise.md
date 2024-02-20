@@ -1,5 +1,5 @@
 ---
-lyout: tag-list
+lyout: tags
 type: tag
 title: Exercise
 slug: exercise
