@@ -344,7 +344,7 @@ collections:
     output:            true
 
   featured_tags:
-    permalink:         /tags/:name/
+    permalink:         /tag-:name/
     output:            true
 
   projects:
