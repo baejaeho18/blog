@@ -9,10 +9,13 @@ comments: true
 
 > CCTV 노드들의 상태와 실시간 영상 스트리밍을 위한 웹 인터페이스 구축
 
+<!--more-->
+
 # 3.1  설정하기
 > 서버는 IntelliJ에서 spring boot를 사용해 코딩을 한 후, jar 파일을 라즈베리파이로 옮겨 구동하겠다.
 [springboot Initalizer](https://start.spring.io/)
 
+![springboot-initalizer](/assets/img/2024-02-16/springboot-initializer.png)
 
 # 3.2 MapList 구현
 목표 : CCTV 상태정보(배터리, 네트워크, 위치 등) 표기

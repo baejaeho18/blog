@@ -14,6 +14,9 @@ comments: true
 * cctv망(halow)와 웹서버(wifi)를 연결할 게이트웨이 1개
 * 웹서비스를 구동시킬 웹서버 1개
 
+
+<!--more-->
+
 # 1.0 기초적인 세팅부터 시작하자.
 우선 라즈베리파이 OS를 다운로드 받아보자.
 https://www.raspberrypi.com/software/operating-systems/

@@ -9,6 +9,8 @@ comments: true
 
 > CCTV 노드들의 상태와 실시간 영상 스트리밍을 위한 웹 인터페이스 구축
 
+<!--more-->
+
 # 4.1 MVC 구현
 > model, view, controller
 
