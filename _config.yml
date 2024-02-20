@@ -385,6 +385,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-last-modified-at
   - jemoji
+  - jekyll-tagging
 
 
 # SEO Tag
@@ -478,6 +479,6 @@ jekyll_compose:
 # jekyll-feed settings
 feed:
   categories:
-    - devlog
-    - review
-    - studylog
+    - blog
+    - project
+    - study

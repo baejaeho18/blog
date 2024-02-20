@@ -3,8 +3,6 @@ layout: post
 title: "[Heath] 헬스 플랜 만들기"
 category: blog
 tags: exercise
-author: author1
-comments: true
 ---
 
 슬슬 일상이 무거워지기 시작했다. 너무 오래 운동을 쉬어서 그렇다. 바른 자세와 몸 건강을 위해서라도 운동 계획을 잡고 시작해야겠다.
