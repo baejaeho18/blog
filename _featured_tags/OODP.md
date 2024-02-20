@@ -1,5 +1,5 @@
 ---
-lyout: tag-list
+layout: tag-list
 type: tag
 title: OODP
 slug: oodp
