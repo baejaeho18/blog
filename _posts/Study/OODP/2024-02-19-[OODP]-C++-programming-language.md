@@ -142,3 +142,10 @@ C의 구성요소들을 크게 수정하지 않고 OOP feature과 generic progra
     - Visual Studio Code : A cross-platform editor which provides a number of plugins.
 
 * Compiling a C++ Program
+![compile-link-both](/assets/img/2024-02-19/compile-link-both.png)
+1. Compiles and links the code
+2. Get executable files
+
+![compile-link-each](/assets/img/2024-02-19/compile-link-each.png)
+1. -c : compilation only, then get an object file
+2. Linking only, then get an executable file
