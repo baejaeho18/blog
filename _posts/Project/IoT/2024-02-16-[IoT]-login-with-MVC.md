@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[IoT] 4. 웹서버 구동하기(3)"
+title: "[IoT] 2. 웹서버 구동하기(3)"
 category: project
 tags: iot
 author: author1
@@ -11,13 +11,13 @@ comments: true
 
 <!--more-->
 
-# 4.1 MVC 구현
+# 2.7 MVC 구현
 > model, view, controller
 
 첫 화면에 로그인/회원가입 페이지를 띄워, 로그인을 해야만 home 화면에 접속할 수 있도록 한다. home 화면에서 좌측 2/3 부분이 mapList와 dashboard가 tab으로 전화할 수 있도록 한다.
 home의 우측에는 cctv 상태 정보가 포함된 목록이 있다. cctv 목록에서 checkbox로 선택된 cctv들은 좌측 dashboard에서 영상으로 송출되고, mapList에서 marker로 위치정보를 표시한다.
 
-# 4.2 로그인 화면 구현
+# 2.8 로그인 화면 구현
 > /login.html
 첫 화면을 로그인/회원가입 화면으로 한다. 회원가입 후, 자동으로 로그인을 진행한다. 로그인이 완료되면 home 화면으로 이동한다.
 
@@ -68,6 +68,10 @@ public class SecurityConfig {
 
 위 코드는 각 페이지들에 대한 접근 권한과 login 후 redirect할 path를 정의하고, default로 user와 admin 유저 두 명을 저장한다.
 
+# 2.9 회원가입 화면 구현
+
+
+# 2.10 home화면 구현
 
 <!-- Links -->
 [블로그]: https://this-circle-jeong.tistory.com/162

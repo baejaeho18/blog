@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[OODP] 1. Setting out to C++"
+title: "[OODP] 0. About C++(2)"
 category: study
 tags: OODP
 ---

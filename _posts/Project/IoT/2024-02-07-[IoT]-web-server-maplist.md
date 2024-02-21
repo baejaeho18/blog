@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[IoT] 3. 웹서버 구동하기(2)"
+title: "[IoT] 2. 웹서버 구동하기(2)"
 category: project
 tags: iot
 author: author1
@@ -11,13 +11,13 @@ comments: true
 
 <!--more-->
 
-# 3.1  설정하기
+# 2.4  설정하기
 > 서버는 IntelliJ에서 spring boot를 사용해 코딩을 한 후, jar 파일을 라즈베리파이로 옮겨 구동하겠다.
 [springboot Initalizer](https://start.spring.io/)
 
 ![springboot-initalizer](/assets/img/2024-02-16/springboot-initializer.png)
 
-# 3.2 MapList 구현
+# 2.5 MapList 구현
 목표 : CCTV 상태정보(배터리, 네트워크, 위치 등) 표기
     - 목록 혹은 지도 상에서 확인 가능
     - 지정클릭 시 현 실시간 영상 송출 지원
@@ -29,7 +29,7 @@ comments: true
 5. jar 파일로 build하고 라즈베리파이에서 구동되는 것을 확인한다.
 
 
-# 3.3 Dashboard 구현
+# 2.6 Dashboard 구현
 로컬에 저장된 영상을 띄우는 간단한 포맷만 만들어 두겠다. 이 부분은 너무나 바뀔 부분이 많아서..
 
 
