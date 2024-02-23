@@ -3,8 +3,6 @@ layout: post
 title: "[GithubBlog] 1. 댓글 및 검색창 추가"
 category: project
 tags: githubblog
-author: author1
-comments: true
 ---
 
 > 주어진 템플릿만으로는 맘에 들지 않아서 댓글 기능과 게시물 검색 기능을 추가해봤다.
