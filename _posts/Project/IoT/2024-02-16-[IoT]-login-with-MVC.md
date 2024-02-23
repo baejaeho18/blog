@@ -71,7 +71,14 @@ public class SecurityConfig {
 # 2.9 회원가입 화면 구현
 
 
+
+
+
 # 2.10 home화면 구현
+
+
+
+
 
 <!-- Links -->
 [블로그]: https://this-circle-jeong.tistory.com/162

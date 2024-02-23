@@ -17,7 +17,7 @@ The function header informs the function's return type and argument list or para
 ## The C++ Preprocessor
 
 A program that processes a source file before the main compilation. Preprocessor directives start with **'#'**. Typical preprocessor action is adding or replacing text in source code before compilation.
-<!-- more -->
+<!--more-->
 ```C++
 // a.cc
 int func()
@@ -63,24 +63,21 @@ Standard library header files do not have the extension.
         C : cstdio(stdio.h), cmath(math.h), cstdlib(stdlibh), ...
 - **cout** : A predefined object for the standard output.
     * object is an instance of a particular class
+    * automatically recognizes the data type of its input. 반면, printf() in C는 data type을 지정해줘야한다.
 - **<<** : An insertion operator to pass the string on the right to the object on the lieft.
 - **endl** : A manipulator(기계장치) that represents a new line.
-    Defined in the iostream header file.
-    Part of the std namespace.
-    Do same thing with '\n' in C.
+    * Defined in the iostream header file.
+    * Part of the std namespace.
+    - Do same thing with '\n' in C.
 - **std** : namespace directive to use cin, cout, endl.
 
-## Declaration Statements and Variables
-A variable is a memory storage to store information.
-(파이썬과는 달리)C++에서는 모든 variable들은 반드시 사용되기 전에 선언되어야 한다.
+### Declaration Statements and Variables
+> A variable is a memory storage to store information.
+
+(파이썬과는 달리) C++에서는 모든 variable들은 반드시 사용되기 전에 선언되어야 한다.
 
 ```C++
 int carrots = 25;
-```
-Type(int)
-name(carrots)
-symbol(=) : assignment operator
-```C++
 cin >> carrots;
 cout << carrots;
 ```
