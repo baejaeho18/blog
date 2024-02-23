@@ -84,3 +84,4 @@ cout << carrots;
 - **cin** allows you to enter a value while the program is running.
 
 ## Function Form
+![calling-function](/assets/img/2024-02-21/calling-function.png)
