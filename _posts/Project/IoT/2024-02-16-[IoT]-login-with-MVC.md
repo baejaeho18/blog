@@ -3,8 +3,6 @@ layout: post
 title: "[IoT] 2. 웹서버 구동하기(3)"
 category: project
 tags: iot
-author: author1
-comments: true
 ---
 
 > CCTV 노드들의 상태와 실시간 영상 스트리밍을 위한 웹 인터페이스 구축

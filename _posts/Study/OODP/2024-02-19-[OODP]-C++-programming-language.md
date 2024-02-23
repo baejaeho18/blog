@@ -3,8 +3,6 @@ layout: post
 title: "[OODP] 0. About C++(1)"
 category: study
 tags: oodp
-author: author1
-comments: true
 ---
 
 > POSTECH OODP Lecture at 24SS
