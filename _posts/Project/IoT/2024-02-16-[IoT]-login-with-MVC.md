@@ -82,3 +82,8 @@ public class SecurityConfig {
 [블로그]: https://this-circle-jeong.tistory.com/162
 [정규문서]: https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html
 [spring-security-samples]: https://github.com/spring-projects/spring-security-samples/blob/main/servlet/java-configuration/authentication/username-password/in-memory/src/main/java/example/SecurityConfiguration.java
+
+https://velog.io/@gmtmoney2357/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8B%9C%ED%81%90%EB%A6%AC%ED%8B%B0-Authentication-SecurityContext
+https://twoline.tistory.com/103
+https://velog.io/@my_id/Spring-Security-%EA%B6%8C%ED%95%9C-%EC%84%A4%EC%A0%95
+[DB연결]: https://engineerinsight.tistory.com/219

@@ -85,3 +85,10 @@ cout << carrots;
 
 ## Function Form
 ![calling-function](/assets/img/2024-02-21/calling-function.png)
+
+
+## Question?
+**Q1.** 이전 챕터에서 우리는 C++ 소스코드가 Compiler를 통해 object-code로 변환이 되고, 이것이 Linker를 통해 startup code와 library code가 덧붙여짐으로써 executable-file이 된다는 사실을 배웠다.
+그런데 이번 챕터에서 preprocessor라는 개념을 배우며, main compilation이 이뤄지기 전에 preprocessor가 동작한다는 사실을 알았다. 그리고 preprocessor의 #include는 해당 라이브러리 혹은 사용자작성 파일을 불러온다는 것을 알았다. 이것이 Linker가 하는 일이 아닌가?
+이 두가지 사실의 모순이 있지 않은지 혼란스럽다.
+**A.** 
