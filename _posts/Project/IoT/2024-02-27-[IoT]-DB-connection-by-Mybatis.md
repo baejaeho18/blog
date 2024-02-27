@@ -121,7 +121,7 @@ dependencies {
 }
 ```
 2. application.properties(or .yml)에 DB 연결 정보와 Mybatis 설정을 추가
-```yml
+```xml
 spring.datasource.url=jdbc:mysql://localhost:3306/mydatabase?serverTimezone=UTC&characterEncoding=UTF-8
 spring.datasource.username=bjh
 spring.datasource.password=1749
