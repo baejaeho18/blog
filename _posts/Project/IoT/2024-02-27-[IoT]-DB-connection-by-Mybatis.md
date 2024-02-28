@@ -28,7 +28,7 @@ JPA를 더 공부하고 만들기에는 시간이 부족하기에 우선 Mybatis
 그런데 막상 쓰다보면 Mybatis와 JPA를 같이 사용하게 될 수도 있다.
 
 # 3.2 MySQL statements
-MySQL 공식 웹사이트에서 서버를 [다운로드](https://dev.mysql.com/downloads/) 받는다. MySQL 서버를 관리하는 GUI 도구인 MySQL 워크벤치를 [다운로드](https://www.mysql.com/products/workbench/) 받아 사용하겠다.
+MySQL 공식 웹사이트에서 서버를 [다운로드](https://dev.mysql.com/downloads/) 받을 수 있다. MySQL 서버를 관리하는 GUI 도구인 MySQL 워크벤치를 [다운로드](https://www.mysql.com/products/workbench/) 받아 사용하겠다.
 워크벤치에서 MySQL 서버에 연결한 후, 'Create a new schema' 아이콘을 클릭하여 스키마를 생성한다. 생성된 스키마를 오른쪽 클릭하여 'Create Table'을 선택한다. SQL문은 다음과 같다.
 ```sql
 CREATE SCHEMA `cims` ;
@@ -56,6 +56,7 @@ CREATE TABLE member (
 ```
 
 * Insert 문을 상황별로 작성한다.
+
 Member의 PostConstructor의 역할을 할 insert 문이다. default 계정인 user과 admin을 저장한다.
 ```sql
 INSERT INTO member (hashcode,name,cctvmemberhashcode id, pwd, valid, userRole) VALUES
@@ -80,6 +81,7 @@ INSERT INTO cctv (id, name, videoUrl, storagePath, xCoordinate, yCoordinate, net
 ```
 
 * Update 문을 상황별로 작성한다.
+
 Member 계정 중 ROLE_USER이 ROLE_ADMIN으로 승급하는 sql문이다.
 ```sql
 UPDATE member SET userRole = 'ROLE_ADMIN' WHERE id = #{userId};
@@ -102,6 +104,7 @@ UPDATE cctv SET networkStat = #{networkStat}, cameraValid = #{cameraValid}, emer
 ```
 
 * Delete 문을 상황별로 작성한다.
+
 Member 계정 중 삭제되어 DB에서 drop하는 sql문이다.
 ```sql
 DELETE FROM member WHERE id = #{deletedMemberId};

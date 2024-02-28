@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[OODP] 1. Dealing with Data"
+title: "[OODP] 1. Dealing with Data(1)"
 category: study
 tags: oodp
 ---
