@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[IoT] 3. DB와 연동하기(1)"
+title: "[CIMS] 3. DB와 연동하기(1)"
 category: project
 tags: iot
 ---

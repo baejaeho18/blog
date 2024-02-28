@@ -1,12 +1,10 @@
 ---
 layout: post
-title: "[IoT] 1. 라즈베리파이 세팅"
+title: "[CIMS] 1. 라즈베리파이 세팅"
 description: >
     CCTV 관제 서비스를 WiFi-Halow를 사용하여 구축하고자 한다.
 category: project
 tags: iot
-author: author1
-comments: true
 ---
 
 라즈베리파이가 필요한 노드들은 다음과 같다.

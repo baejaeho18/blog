@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[IoT] 0. background research"
+title: "[CIMS] 0. background research"
 category: project
 tags: iot
 author: author1
