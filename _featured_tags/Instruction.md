@@ -1,8 +1,8 @@
 ---
 layout: tag-list
 type: tag
-title: Instruction
-slug: instruction
+title: Instructions
+slug: instructions
 category: study
 sidebar: true
 description: >

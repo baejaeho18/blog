@@ -15,6 +15,8 @@ tags: oodp
     - Build on the basic types
     - Arrays, strings, pointers, structures
 
+<!--more-->
+
 ### Integer Types
 Numbers with no fractional part, e.g., 2, 98, -5286, 0 <br>
 ![integer-types](/assets/img/2024-02-26/integer-types.png) <br>

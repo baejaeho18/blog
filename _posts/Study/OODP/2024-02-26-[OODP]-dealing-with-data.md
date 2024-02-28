@@ -21,6 +21,8 @@ int barincount = 5;
 2. braincount는 5라는 value를 뜻한다.
 3. integer에 저장된다.
 
+<!--more-->
+
 ## Names for Variables
 > Naming Rules
 

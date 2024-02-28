@@ -31,7 +31,7 @@ JPA를 더 공부하고 만들기에는 시간이 부족하기에 우선 Mybatis
 MySQL 공식 웹사이트에서 서버를 [다운로드](https://dev.mysql.com/downloads/) 받을 수 있다. MySQL 서버를 관리하는 GUI 도구인 MySQL 워크벤치를 [다운로드](https://www.mysql.com/products/workbench/) 받아 사용하겠다.
 워크벤치에서 MySQL 서버에 연결한 후, 'Create a new schema' 아이콘을 클릭하여 스키마를 생성한다. 생성된 스키마를 오른쪽 클릭하여 'Create Table'을 선택한다. SQL문은 다음과 같다.
 ```sql
-CREATE SCHEMA `cims` ;
+CREATE SCHEMA cims;
 
 CREATE TABLE cctv (
     id VARCHAR(10) PRIMARY KEY,
