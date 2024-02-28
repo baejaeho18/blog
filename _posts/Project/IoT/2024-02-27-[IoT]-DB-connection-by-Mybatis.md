@@ -117,7 +117,7 @@ DELETE FROM cctv WHERE id = #{deletedCctvId};
 # 3.2 Setting for Mybatis
 > [Mybatis 연동] 블로그를 참고하였다.
 
-1. build.gradle에 Mybatis-spring-boot-starter 의존성 추가한 후, build
+1. build.gradle에 Mybatis-spring-boot-starter 의존성 추가한다.
 ```xml
 dependencies {
         implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
@@ -125,17 +125,24 @@ dependencies {
 ```
 2. application.properties(or .yml)에 DB 연결 정보와 Mybatis 설정을 추가
 ```xml
-spring.datasource.url=jdbc:mysql://localhost:3306/mydatabase?serverTimezone=UTC&characterEncoding=UTF-8
+spring.datasource.url=jdbc:mysql://localhost:3306/cims?serverTimezone=UTC&characterEncoding=UTF-8
 spring.datasource.username=bjh
 spring.datasource.password=1749
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-
-mybatis.type-aliases-package=com.example.mybatisdemo.domain
+mybatis.type-aliases-package=com.example.demo.domain
 mybatis.mapper-locations=classpath:mapper/*.xml
 ```
+이때 schema 명(cims)와 계정명(bjh), 계정암호(1749)는 workbench에서 생성한 schema와 계정에 따른다.
+이때, 입력한 계정의 권한을 꼭 설정해줘야 한다.
+![user-privileges](/assets/img/2024-02-28/user-privileges.png)
+또한 localhost가 아닌 정식 domain을 얻고 배포한다면, 반드시 마스킹하는 것을 잊지말라.
+
+> 1번과 2번은 반드시 atomic하게 이뤄져야 한다. 그렇지 않으면 [Failed to configure a DataSource]를 만나게 될 것이다.
+
 3. Domain object와 Mapper Interface, Mapper XML file 작성
 
 
 <!-- Links -->
 [Mybatis와 JPA 비교]: https://www.elancer.co.kr/blog/view?seq=231
 [Mybatis 연동]: https://engineerinsight.tistory.com/219
+[Failed to configure a DataSource]: https://psip31.tistory.com/139
