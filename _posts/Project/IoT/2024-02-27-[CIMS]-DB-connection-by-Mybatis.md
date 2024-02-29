@@ -142,6 +142,8 @@ mybatis.mapper-locations=classpath:mapper/*.xml
 3. Domain object와 Mapper Interface, Mapper XML file 작성
 
 
+
+
 <!-- Links -->
 [Mybatis와 JPA 비교]: https://www.elancer.co.kr/blog/view?seq=231
 [Mybatis 연동]: https://engineerinsight.tistory.com/219
