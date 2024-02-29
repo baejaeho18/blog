@@ -141,7 +141,9 @@ mybatis.mapper-locations=classpath:mapper/*.xml
 
 3. Domain object와 Mapper Interface, Mapper XML file 작성
 
+CCTV mapper
 
+Member mapper
 
 
 <!-- Links -->

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[COMS] 2. 웹서버 구동하기(3)"
+title: "[CIMS] 2. 웹서버 구동하기(3)"
 category: project
 tags: iot
 ---
