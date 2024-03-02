@@ -4,7 +4,7 @@ title: [Makefile] "bmake: before make"
 description: >
   Makefile auto-generator in specific file path.
 category: project
-tags: Scripts
+tags: scripts
 ---
 
 장담컨데, Makefile을 만드는 것은 정말 귀찮고 지루한 일이다.
