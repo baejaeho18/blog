@@ -193,7 +193,14 @@ unsigned char xor = a ^ b;  // 27
 ```
 
 * Type Conversions
+> C++ provides automatic type conversion
 
+컴파일러에 의해 발생하므로 data loss가 발생할 수 있음.
+
+* Type Casting Operators
+> 2 forms of syntax : (typename)value, typename(value)
+
+개발자가 의도적으로 Type을 지정
 
 ## Questions?
 
