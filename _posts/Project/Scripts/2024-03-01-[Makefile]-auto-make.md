@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Makefile] "bmake: before make"
+title: "[Makefile] bmake: before make"
 description: >
   Makefile auto-generator in specific file path.
 category: project
