@@ -155,10 +155,44 @@ float var = 2.34;   // warning: as it tries to assign a double constant to a flo
 float var2 = 2.34f; // To avoid warning, use the suffix
 ```
 
+### Operators
 * C++ Arithmetic Operators
 Addition(+), Subtraction(-), Multiplication(*), Division(/), Modulus(%)
 
+* Expressions and Assignment Operators
+> Expression: any value or any valid combination of values and operators consitute an expression
 
+```c++
+mids = (cook = 4) + 6;
+x = y = 4;
+```
+
+* Increment/Decrement Operators
+```C++
+y = ++z; // z += 1, y = z
+y = z--; // temp = z, z -= 1, y = temp
+
+x = 2 * x++ * (3 - ++x);    // ambiguous!
+```
+- Never ever use them twice in one equation
+- C++ doesn't define the correct behaviour, so it depends on compiler
+
+* Bitwise Operators
+Operate on the bits of integer values
+- shift(<<, >>), negation(~), AND(&), OR(|), XOR(^)
+```c++
+unsigned char a = 13;
+unsigned char b = 22;
+
+unsigned char sl = a << 3;  // 
+unsigned char sr = a >> 3;  // 
+unsigned char neg = ~a;     // 231?
+unsigned char and = a & b;  // 4
+unsigned char or = a | b;   // 31
+unsigned char xor = a ^ b;  // 27
+```
+
+* Type Conversions
 
 
 ## Questions?
