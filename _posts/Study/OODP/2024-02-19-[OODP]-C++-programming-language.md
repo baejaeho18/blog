@@ -147,3 +147,5 @@ C의 구성요소들을 크게 수정하지 않고 OOP feature과 generic progra
 ![compile-link-each](/assets/img/2024-02-19/compile-link-each.png)
 1. -c : compilation only, then get an object file
 2. Linking only, then get an executable file
+
+조금 더 자세한 내용을 원한다면 다음 [설명](https://github.com/green7ea/blog)을 참고해도 좋을 것 같다.

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[OODP] 2. Compound Types(1)"
+title: "[OODP] 2. Compound Types(2)"
 category: study
 tags: oodp
 ---
