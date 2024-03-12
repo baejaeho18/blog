@@ -47,8 +47,7 @@ popq %rbp
 ret
 ```
 2. Earlier Procedure Languages <br>
-> Ex) Basic, Fortran, ...
-
+Ex) Basic, Fortran, ... <br>
 Spaghetti programming의 위험이 있다 : Organizational problems as programs grew larger. 특히 "goto" 같은 statement를 사용할 경우 더욱 그렇다.<br>
 ``` Fortran
 10 PRINT "Complex Number Calculator"
@@ -81,10 +80,10 @@ Spaghetti programming의 위험이 있다 : Organizational problems as programs 
 530 PRINT "(";R1;"+";I1;"i) / (";R2;"+";I2;"i) = ";R3;"+";I3;"i"
 540 GOTO 20
 ``` 
-점차 구조화 되어 Structured Programming이 나타났다. Top-down 설계를 통해 커다란 프로그램을 좀더 작은 일들로 세분화한다. 또한 fuction으로 모듈화할 수 있다. <br>
+점차 구조화 되어 Structured Programming이 나타났다. Top-down 설계를 통해 커다란 프로그램을 좀 더 작은 일들로 세분화한다. 또한 fuction으로 모듈화할 수 있다. <br>
 3. C 언어 <br>
 Unix 운영체제를 개발하기 위해 만들어진 언어다. 
-concise(간결)하고, compact(작고) and fast(빠른) 프로그램을 생성하며, 하드웨어를 효율적으로 제어할 수 있는 high-level 프로그래밍 언어가 필요로 했다.
+cocisne(간결)하고, compact(작고) and fast(빠른) 프로그램을 생성하며, 하드웨어를 효율적으로 제어할 수 있는 high-level 프로그래밍 언어가 필요로 했다.
 
 ## Object-Oriented Programming
 Procedural language가 algorithm에 집중했다면, OOP는 data를 강조한다. 문제에 필요한 형태로 data를 설계한다.
@@ -93,7 +92,7 @@ Procedural language가 algorithm에 집중했다면, OOP는 data를 강조한다
     - 해당 data에 대해 수행할 수 있는 operation
 - Object : class에 따라 구성된 data structure
 
-OOP는 큰 program이 다뤄야할 것들을 정확히 표현해내는 class를 설계한 후, 이들의 object를 사용하여 program을 설계하는 bottom-up programming의 방식을 따른다.
+OOP는 큰 프로그램이 다뤄야할 것들을 정확히 표현해내는 class를 설계한 후, 이들의 object를 사용하여 프로그램을 구성하는 bottom-up programming의 방식을 따른다.
 따라서 OOP는 1) software를 이해하고 조직하기 용이하여, 2) 개발 및 유지보수 비용(cost)이 감소하고, 3) software components들을 재사용(reuse)하기 쉽다는 장점이 있다.
 
 * Abstract Data Type : A data type in which only high-level operations are exposed as **public interfaces** while low-level datails are hidden
@@ -107,20 +106,23 @@ OOP가 큰 프로젝트를 관리하는 도구로 사용된다면, Generic Progr
 
 > "Generic" refers to code that is type independent
 
-C++에는 integer, characters, floating-point numbers, strings of characters 와 같은 수많은 data type들이 존재한다. Generic Programming은 generic tpye의 함수 하나로, 다양한 실제 type들에 대해 사용할 수 있도록 한다. 이를 C++ template을 통해 제공된다.
+C++에는 integer, characters, floating-point numbers, strings of characters 와 같은 수많은 data type들이 존재한다. Generic Programming은 generic tpye의 함수 하나로, 다양한 실제 type들에 대해 사용할 수 있도록 한다. 이는 C++ template을 통해 제공된다.
+
+C++에서 동일한 기능을 Structured Programming부터 OOP Programing, Generic Programming으로 구현한 코드를 보고 싶다면 [complex_calculator](https://github.com/baejaeho18/code/tree/main/0-Education/oodp/complex_calculator)예제를 참고해도 좋겠다.
+
 
 # The Genesis of C++
 C++은 C의 superset(초집합, 포함집합)이다.
 C의 brevity(간결성), suitability to system programming, widespread availability, 그리고 Unix 운영체제와의 긴밀한 연결성을 살리기 위해 이를 기반으로 하였다.
-C의 구성요소들을 크게 수정하지 않고 OOP feature과 generic programming support를 더했다.
+C의 구성요소들을 크게 수정하지 않고 OOP feature과 generic programming support만을 더했다.
 
 [The Standard:Standard C++(isocpp.org)](https://isocpp.org/std/the-standard)
 
 # Mechanics of Creating a Program
 > C++로 프로그램을 작성했을 때, 어떻게 동작하는가?
 
+![prgramming-steps](/assets/img/2024-02-19/programming-steps.png)
 * Steps
-![prgramming-steps](/assets/img/2024-02-10/programming-steps.png)
 1. Write source code and save in a file
 2. Compile(translate) the source code to the object code which containing the machine language used by the host computer
 3. Link the object code with additional code, then get an executable code.
@@ -134,12 +136,14 @@ C의 구성요소들을 크게 수정하지 않고 OOP feature과 generic progra
 * C++ Compiler
     - Microsoft Visual C++
     - g++ : A part of GNU compiler. Available on various platforms.
+
 * C++ IDE : provides a collection of tools including an editor, compiler, linker, debugger.
     - Microsoft Visual Studio
         [Visual Studio 2022](https://visualstudio.microsoft.com/ko/vs/community/)
     - Visual Studio Code : A cross-platform editor which provides a number of plugins.
 
 * Compiling a C++ Program
+
 ![compile-link-both](/assets/img/2024-02-19/compile-link-both.png)
 1. Compiles and links the code
 2. Get executable files
