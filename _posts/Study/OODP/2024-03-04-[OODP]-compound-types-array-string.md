@@ -46,6 +46,11 @@ short things[] = {1,3,5,6};
 
 
 ## Questions?
-**Q1.** Array에서 size를 const로 선언한 값으로 정할 수 있는가?
+**Q1.** Array에서 size를 const로 선언한 값으로 정할 수 있는가? <br>
+**A1.** 물론이다.
+
+**Q2.** 
+**A2.**
+
 
 <!-- Links -->

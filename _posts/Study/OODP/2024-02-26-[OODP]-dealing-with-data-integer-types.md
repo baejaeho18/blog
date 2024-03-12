@@ -6,6 +6,7 @@ tags: oodp
 ---
 
 > POSTECH OODP Lecture at 24SS
+Fundamental Types
 
 # Variables
 > Programs typically need to store information. <br>

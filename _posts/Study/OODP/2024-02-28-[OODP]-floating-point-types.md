@@ -6,6 +6,7 @@ tags: oodp
 ---
 
 > POSTECH OODP Lecture at 24SS
+Fundamental Types
 
 ## Data Types
 * Fundamental types
@@ -61,18 +62,20 @@ x = (y = (z = 0));
 
 * Increment/Decrement Operators
 
-``` C++
+``` c++
 y = ++z; // z += 1, y = z
 y = z--; // temp = z, z -= 1, y = temp
 
 x = 2 * x++ * (3 - ++x);    // ambiguous!
 ```
-    - Never ever use them twice in one equation
-    - C++ doesn't define the correct behaviour, so it depends on compiler
+
+- Never ever use them twice in one equation
+- C++ doesn't define the correct behaviour, so it depends on compiler
 
 * Bitwise Operators
-    Operate on the bits of integer values
-    - shift(<<, >>), negation(~), AND(&), OR(|), XOR(^)
+
+Operate on the bits of integer values
+- shift(<<, >>), negation(~), AND(&), OR(|), XOR(^)
 
 ``` c++
 unsigned char a = 13;
@@ -90,7 +93,7 @@ unsigned char xor = a ^ b;  // 27
 > C++ provides automatic type conversion
 
 변수나 상수의 type에 맞는 값을 할당해줘야하는데, 다른 값을 넣을 경우 compiler는 자동으로 type conversion을 실행한다.
-컴파일러에 의해 발생하므로 data loss가 발생할 수 있기 때문에 'warning'을 알려주면 주의해야 한다.
+컴파일러에 의해 발생하므로 data loss가 발생할 수 있기 때문에 'warning'으로 알려주면 주의해야 한다.
 ``` c++
 int main()
 {
