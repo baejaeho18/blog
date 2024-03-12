@@ -11,8 +11,7 @@ tags: oodp
 
 > **int main(void)** is very explicit style of function header.
 
-C++ compiler adds the startup code which calls the main function. In effect, the function header of main describes the interface between **main( )** and the operating system.
-The function header informs the function's return type and argument list or parameter list.
+C++ 컴파일러는 main 함수를 호출하는 startup code를 추가한다. 이때, main 함수의 header는 **main()**과 OS 간의 interface 역할을 한다. 함수의 header는 해당 함수의 return type과 argument list or parameter list 정보를 제공한다.
 
 ## The C++ Preprocessor
 
@@ -45,7 +44,7 @@ int main()
 In the above code, preprocessor 
 - removes comments
 - adds the content of "a.cc" into "b.cc"
-- replaces macro constants defined by '#define' with what they actually are.
+- replaces macro constants defined by '**#define**' with what they actually are.
 
 ```C++
 #include <iostream> // a preprocessor directive
@@ -89,6 +88,6 @@ cout << carrots;
 
 ## Question?
 **Q1.** 이전 챕터에서 우리는 C++ 소스코드가 Compiler를 통해 object-code로 변환이 되고, 이것이 Linker를 통해 startup code와 library code가 덧붙여짐으로써 executable-file이 된다는 사실을 배웠다.
-그런데 이번 챕터에서 preprocessor라는 개념을 배우며, main compilation이 이뤄지기 전에 preprocessor가 동작한다는 사실을 알았다. 그리고 preprocessor의 #include는 해당 라이브러리 혹은 사용자작성 파일을 불러온다는 것을 알았다. 이것이 Linker가 하는 일이 아닌가?
-이 두가지 사실의 모순이 있지 않은지 혼란스럽다.
-**A.** 
+그런데 이번 챕터에서 preprocessor라는 개념을 배우며, main compilation이 이뤄지기 전에 preprocessor가 동작한다는 사실을 알았다. 그리고 preprocessor의 #include는 해당 라이브러리 혹은 사용자 작성 헤더 파일을 불러온다는 것을 알았다. 이것이 Linker가 하는 일이 아닌가?
+이 두가지 사실의 모순이 있지 않은지 혼란스럽다. <br>
+**A1.** 이 질문은 header파일에 대한 이해가 부족했기 때문에 발생한다. 우선, 모든 함수들은 사용되기 전에 header가 미리 선언되어 있어야 한다. 이 헤더들을 모아둔 것을 #include로 불러오는 것이다. 그것이 사용자가 작성한 헤더파일이든, 라이브러리의 헤더파일이든 말이다. 즉, '#include <iostream>'을 작성하면 iostream의 함수가 모두 구현된 파일이 아니라 헤더파일만을 가져와 붙여준다. 실제로 함수가 구현된 내용은 linker가 obj 파일로 붙여준다.

@@ -86,14 +86,15 @@ Unix 운영체제를 개발하기 위해 만들어진 언어다.
 cocisne(간결)하고, compact(작고) and fast(빠른) 프로그램을 생성하며, 하드웨어를 효율적으로 제어할 수 있는 high-level 프로그래밍 언어가 필요로 했다.
 
 ## Object-Oriented Programming
-Procedural language가 algorithm에 집중했다면, OOP는 data를 강조한다. 문제에 필요한 형태로 data를 설계한다.
+Procedural language가 algorithm에 집중했다면, OOP는 data를 강조한다. 문제에 필요한 형태로 다음과 같이 data를 설계한다.
+
 - Class : Specification describing such a new data form
     - 객체를 나타내는 데 사용되는 data
     - 해당 data에 대해 수행할 수 있는 operation
 - Object : class에 따라 구성된 data structure
 
-OOP는 큰 프로그램이 다뤄야할 것들을 정확히 표현해내는 class를 설계한 후, 이들의 object를 사용하여 프로그램을 구성하는 bottom-up programming의 방식을 따른다.
-따라서 OOP는 1) software를 이해하고 조직하기 용이하여, 2) 개발 및 유지보수 비용(cost)이 감소하고, 3) software components들을 재사용(reuse)하기 쉽다는 장점이 있다.
+OOP에서는 큰 프로그램이 다뤄야할 것들을 정확히 표현해내는 class를 설계한 후, 이들의 object를 사용하여 프로그램을 구성하는 bottom-up programming의 방식을 따른다.
+따라서 OOP는 1) software를 이해하고 조직하기 용이하여, 2) 개발 및 유지보수 비용(cost)이 감소하고, 3) software components들을 재사용(reuse)하기 쉽다는 장점이 있다. 
 
 * Abstract Data Type : A data type in which only high-level operations are exposed as **public interfaces** while low-level datails are hidden
 
