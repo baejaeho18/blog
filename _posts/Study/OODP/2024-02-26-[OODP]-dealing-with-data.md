@@ -137,7 +137,7 @@ sizeof(n_llong)
 ### How C++ Decides What Type a Constan Is?
 변수는 선언하면서 type을 명확히 지정할 수 있다.
 선언되지 않은 상수들은 정수형일 때 int type으로 자동으로 저장되지만, suffix를 활용하여 type을 명시할 수 있다. 만약 데이터의 값이 너무 커서 int형으로 저장할 수 없는 경우 차례로 unsigned, long, lon long으로 저장된다. 또한, 상수가 실수형일 경우에는 자동으로 double type으로 저장된다.
-```c++
+``` c++
 cout << "Years = " << 1942 << endl;
 cout << "Years = " << 1942U << endl;    // u or U
 cout << "Years = " << 1942L << endl;    // l or L
@@ -150,7 +150,7 @@ cout << "Years = " << 1942ULL << endl;  // ull, Ull, uLL, ULL
 * #define Statement
 소스코드 안에 숫자들이 많아질수록 의미를 파악하기가 어렵다. 코드 안의 숫자가 무엇을 의미하는지 고민해야하기 때문이다.
 이때 **#define** 문을 사용해서 symbolic constants를 정의할 수 있다. symbolic constant는 변수처럼 이름을 가지고 있는 상수이다.
-```C++
+``` C++
 #define NUM_WHEELS_PER_CAR  4
 #define PI                  3.141592
 
@@ -159,7 +159,7 @@ int area = PI * radius * radius;
 #define 문은 preprocessor directive이다. 마치 editor의 '전체 바꾸기(ctrl+h)'와 같은 역할을 한다. 코드 상의 위치와 관계없이 동작하지만, 일반적으로 파일의 시작에 둔다.
 
 정의한 define 문이 상수가 아닌 연산식일 경우, 의도하지 않은 동작을 방지하기 위해 '( )'로 묶을 것을 권고한다.
-```C++
+``` C++
 #define NUM_LEGS_PER_CAT    2+2
 #define NUM_LEGS_PER_DOG    (2+2)
 ```

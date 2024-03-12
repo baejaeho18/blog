@@ -27,7 +27,7 @@ Integer type의 표준은 **int**이고, 음수를 표현할 일 없으면 unsig
 
 ### Floating-Point Numbers
 > Floating-point types represent numbers with fractional parts<br>
-E notation : 3.45E6 == +3.45e+6 == 3.45 * 10^6
+E notation : $$3.45E6 == +3.45e+6 == 3.45 * 10^6$$
 
 C++에는 3가지 floating-point type이 존재한다.
 ![floating-types](/assets/img/2024-02-28/floating-types.png)
@@ -43,38 +43,44 @@ float var = 2.34;   // warning: as it tries to assign a double constant to a flo
 float var2 = 2.34f; // To avoid warning, use the suffix
 ```
 
-### Operators
+### Arithmetic Operators
 * C++ Arithmetic Operators
 Addition(+), Subtraction(-), Multiplication(*), Division(/), Modulus(%)
+
+위 연산자들을 사용하는 코드는 [float_arith.cpp]에서 볼 수 있다.
 
 * Expressions and Assignment Operators
 > Expression: any value or any valid combination of values and operators consitute an expression
 
-```c++
+    아래와 같은 할당문은 가능하다.
+``` c++
 mids = (cook = 4) + 6;
-x = y = 4;
+x = y = z = 4;
+x = (y = (z = 0));
 ```
 
 * Increment/Decrement Operators
-```C++
+
+``` C++
 y = ++z; // z += 1, y = z
 y = z--; // temp = z, z -= 1, y = temp
 
 x = 2 * x++ * (3 - ++x);    // ambiguous!
 ```
-- Never ever use them twice in one equation
-- C++ doesn't define the correct behaviour, so it depends on compiler
+    - Never ever use them twice in one equation
+    - C++ doesn't define the correct behaviour, so it depends on compiler
 
 * Bitwise Operators
-Operate on the bits of integer values
-- shift(<<, >>), negation(~), AND(&), OR(|), XOR(^)
-```c++
+    Operate on the bits of integer values
+    - shift(<<, >>), negation(~), AND(&), OR(|), XOR(^)
+
+``` c++
 unsigned char a = 13;
 unsigned char b = 22;
 
 unsigned char sl = a << 3;  // 
 unsigned char sr = a >> 3;  // 
-unsigned char neg = ~a;     // 231?
+unsigned char neg = ~a;     // 242 (255-13)
 unsigned char and = a & b;  // 4
 unsigned char or = a | b;   // 31
 unsigned char xor = a ^ b;  // 27
@@ -83,14 +89,54 @@ unsigned char xor = a ^ b;  // 27
 * Type Conversions
 > C++ provides automatic type conversion
 
-컴파일러에 의해 발생하므로 data loss가 발생할 수 있음.
+변수나 상수의 type에 맞는 값을 할당해줘야하는데, 다른 값을 넣을 경우 compiler는 자동으로 type conversion을 실행한다.
+컴파일러에 의해 발생하므로 data loss가 발생할 수 있기 때문에 'warning'을 알려주면 주의해야 한다.
+``` c++
+int main()
+{
+    using namespace std;
+    cout.setf(ios_base::fixed, ios_base::floatfield);
+    float tree = 3; // int converted to float
+    int guess = 3.9832; // double converted to int
+    int debt = 7.2E12; // Too large number for int. result not defined in C++
+    cout << "tree = " << tree << endl;
+    cout << "guess = " << guess << endl;
+    cout << "debt = " << debt << endl;
+    return 0;
+}
+```
 
 * Type Casting Operators
 > 2 forms of syntax : (typename)value, typename(value)
 
-개발자가 의도적으로 Type을 지정
+한편, 개발자가 의도적으로 Type을 지정해줄 수도 있다.
+``` c++
+#include <iostream>
+int main() {
+    using namespace std;
+    int auks, bats, coots;
+    // the following statement adds the values as double,
+    // then converts the results to int
+    auks = 19.99 + 11.99;
+    // these statements add values as int
+    bats = (int)19.99 + (int)11.99; // old C syntax
+    coots = int(19.99) + int(11.99); // new C++ syntax
+    cout << "auks = " << auks << ", bats = " << bats;
+    cout << ", coots = " << coots << endl;
+    char ch = 'Z';
+    cout << "The code for " << ch << " is "; // print as char
+    cout << int(ch) << endl;
+    return 0;
+}
+```
+
+위의 코드들은 [init_cast.cpp]에서 확인할 수 있다.
 
 ## Questions?
 
 
 <!-- Links -->
+[float_arith.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/FundamentalTypes/float_arith.cpp
+[init_cast.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/FundamentalTypes/init_cast.cpp
+
+[bondini.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/FundamentalTypes/bondini.cpp
