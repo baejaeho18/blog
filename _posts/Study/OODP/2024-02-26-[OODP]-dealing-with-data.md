@@ -14,6 +14,7 @@ To store an item, the program must keep track of 3 fundamental properties
 1. 어떤 type의 정보를 저장할 것인가?
 2. 어디(memory)에 저장할 것인가?
 3. 어떤 value를 저장할 것인가?
+
 ```C++
 int barincount = 5;
 ```
@@ -36,7 +37,6 @@ int barincount = 5;
     - 하나의 underscore로 시작하는 이름은 global identifier로 예약되어 있다.
     > Names beginning with two underscore characters or with an underscore character followed by an uppercase letter are reserved for use by the implementation, i.e., compiler. Names beginning with a single underscore character are reserved for use as global identifiers by the implementation.
 
-
 ## Data Types
 * Fundamental types
     - Integers
@@ -48,7 +48,7 @@ int barincount = 5;
 ### Integer Types
 Numbers with no fractional part, e.g., 2, 98, -5286, 0 <br>
 ![integer-types](/assets/img/2024-02-26/integer-types.png) <br>
-16-bit의 short integer type은 -32,768 ~ +32,767의 값을 표현할 수 있다. ($2^16 = 65536$)
+16-bit의 short integer type은 -32,768 ~ +32,767의 값을 표현할 수 있다. $$2^16 = 65536$$
 여러가지 type이 존재하는 이유는 불필요한 memory space의 낭비를 막기 위해서이다. 각 Type의 크기를 확인하는 코드는 [limits.cpp]를 참고하면 된다.
 
 C++ 표준에서 type마다 고정된 크기를 두지 않은 것은 system마다 **natural data size**가 다르기 때문이다. natural size란 컴퓨터가 가장 효과적으로 다룰 수 있는 크기를 말한다. 예를 들어, IBM은 가장 natural한 16-bits를 int로 맞췄었다.<br>
@@ -66,6 +66,7 @@ int waist = 0x42;   // hexadecimal integer literal starts with '0x' (66)
 int inseam = 042;   // octal integer literal starts with '0' (34)
 ```
 hexadecimal은 0~9, A-F로 표현된다. 0xF(or 0xf, 0XF, 0Xf)는 15, 0xFF는 255(1 byte)이다. 2 digits이 1 byte라는 것은 low-level system programming에서 무척 편리하게 사용된다.
+
 ```C++
 cout << dec; // manipulator for changing number base
 cout << "chest = " << chest << " (decimal for 42)" << endl;
@@ -83,16 +84,96 @@ cout << "inseam = " << inseam << " (octal for 42)" << endl;
 
 * How C++ Decides What Type a Constan Is?
 
-* The char Type: Characters and Small Integers
-char type은 1 Byte, 즉 8-bits 크기의 변수이다. 따라서 $2^8$개의 정수(-128~127)를 표현할 수 있다.
 
+* The char Type : Characters and Small Integers<br>
+char type은 1 Byte, 즉 8-bits 크기의 변수이다. 따라서 2^8개의 정수(-128~127)를 표현할 수 있다. 예컨데, ASCII로 알파벳 'M'은 숫자 77로 저장된다. 변수를 호출하면, 저장된 숫자 77은 type에 맞춰져 'M'으로 반환된다. 그러나 실제로 저장되는 것은 1-byte integer이기 때문에, integer operation을 적용하라 수 있다.
+```C++
+char ch = 'M';  // assign ASCII code for M to ch
+int i = ch; // store same code in an int
+cout << ch << i << ch + 1 << endl;
+// output
+// M 77 N
+```
+
+* The bool Type
+> Bool represents a boolean value(true or false).
+
+Bool 타입이 소개되기 전까지, zero/nonzero number가 false/true로 사용되었다. 이는 아직까지도 이어진다.
+```C++
+bool is_ready = true;
+
+int ans = true; // ans assigned 1
+int promise = false;    // promise assigned 0
+
+// Both in C and C++, nonzero numbers are interpreted as true
+if ( 32 ) {
+    cout << "True" << endl;
+}
+else {
+    cout << "False" << endl;
+}
+// output
+// True
+
+bool start = -100;  // start assigned true
+bool stop = 0;  // stop assigned false
+```
+
+* The sizeof Operator
+data type들의 size는 system에 따라 다르다. 특정한 data type의 크기를 확인할 때 sizeof을 사용한다.
+```C++
+// sizeof operator yields size of type or of variable
+// sizeof(type_name)
+// sizeof(variable_name)
+sizeof(int)
+sizeof(n_short)
+sizeof(n_long)
+sizeof(n_llong)
+```
+
+* #define Statement
+소스코드 안에 숫자들이 많아질수록 의미를 파악하기가 어렵다. 코드 안의 숫자가 무엇을 의미하는지 고민해야하기 때문이다. 이때 **#define** 문을 사용해서 symbolic constants를 정의할 수 있다.
+```C++
+#define NUM_WHEELS_PER_CAR  4
+#define PI                  3.141592
+
+int area = PI * radius * radius;
+```
+
+#define 문은 preprocessor directive이다. 마치 editor의 '전체 바꾸기(ctrl+h)'와 같은 역할을 한다. 코드 상의 위치와 관계없이 동작하지만, 일반적으로 파일의 시작에 둔다.
+
+정의한 define 문이 상수가 아닌 연산식일 경우, 의도하지 않은 동작을 방지하기 위해 '( )'로 묶을 것을 권고한다.
+```C++
+#define NUM_LEGS_PER_CAT    2+2
+#define NUM_LEGS_PER_DOG    (2+2)
+```
+
+* The const Qualifier
+> const type name = value;
+그러나 **#define**문은 과거에 symbolic constants를 정의하던 방식이다. const는 symbolic constants를 정의하는 새로운, 더 나은 방법이다.
+
+const는 #define에 비해 여러가지 장점이 있다. const는 type을 명시할 수 있고, 적용 범위를 조절할 수 있다. 또한, #define 처럼 미리 상수를 정의해두는 것이 아니라, runtime 도중에 값을 할당할 수 있다. 또한 arrays, structures, classes와 같은 정교한elaborate 타입들로도 사용될 수 있다.
+```C++
+#define ONE = 1     // Traditional C style
+                    // No explicitly specified type
+                    // Uppercase for all letters
+                    // Can use ONE outside of this block
+const long Two = 2; // New to C++
+                    // Uppercase for the 1st letter
+                    // Allows to limit the scope of a const
+const int Some_const
+
+Some_const = i * 2; // create constants in the runtime
+
+const Position origin = {0,0};
+```
 
 
 
 ## Questions?
 **Q1.** 구글 C++ style guide를 보았을 때, member 변수에는 underscore(_)를 사용하도록 권장하던데 상관없을까요? <br>
 **A1.** class 멤버변수 앞에 underscore를 붙여야한다는 것은 전혀 아니다. 그래야할 이유가 없다. 다만 underscore를 앞에 쓰지 말라는 것은 컴파일러의 예약어와 겹칠 수도 있기 때문이다. 그런데 멤버변수는 별도로 implementation되기 때문에 사용해도 무방하다. <br>
-**+** [구글 C++ Convention]를 확인해본 결과 class 멤버변수에 underscore를 붙이는 것을 권장하는 것은 앞이 아니라 뒤였다. 우문에 현답이었다..
+ **+** [구글 C++ Convention]를 확인해본 결과, class 멤버변수에 underscore를 붙이는 것을 권장하는 것은 앞이 아니라 뒤였다. 우문에 현답이었다..
 
 **Q2.** char가 정수까지 표현할 수 있다고 했는데, int로 type을 다시 선언해줘야 출력할 수 있다면 정수를 저정한다고 표현할 수 있나요? <br>
 **A2.** 실제로 메모리에 저장되는 것은 정수가 맞지만, 이를 사람 눈에 보이게 표현될 때, type에 맞게 출력되는 것이다.
