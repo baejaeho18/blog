@@ -60,13 +60,14 @@ Integer type의 표준은 **int**이고, 음수를 표현할 일이 없으면 un
 실제 사례를 [exceed.cpp]에서 확인할 수 있다.
 
 * Integer Literals
+
 10진수 뿐만 아니라, 16진수와 8진수로도 표현할 수 있다.
 ```C++
 int chest = 42;     // decimal integer literal (42)
 int waist = 0x42;   // hexadecimal integer literal starts with '0x' (66)
 int inseam = 042;   // octal integer literal starts with '0' (34)
 ```
-hexadecimal은 0~9, A-F로 표현된다. 0xF(or 0xf, 0XF, 0Xf)는 15, 0xFF는 255(1 byte)이다. 2 digits이 1 byte라는 사실은 low-level system programming에서 무척 편리하게 사용된다.
+hexadecimal은 0~9, A-F로 표현된다. 0xF(or 0xf, 0XF, 0Xf)는 15, 0xFF는 255(1 byte)이다. 2 digits이 1 byte라는 사실은 low-level system programming에서 무척 편리하게 사용된다. <br>
 ```C++
 cout << dec; // manipulator for changing number base
 cout << "chest = " << chest << " (decimal for 42)" << endl;
@@ -80,9 +81,10 @@ cout << "inseam = " << inseam << " (octal for 42)" << endl;
 // waist = 2a (hexadecimal for 42)
 // inseam = 52 (octal for 42)
 ```
-위 코드는 [hexoct.cpp]에 구현되어 있다.
+위 코드들은 [hexoct.cpp]에 구현되어 있다.
 
-* The char Type : Characters and Small Integers<br>
+* The char Type : Characters and Small Integers
+
 char type은 1 Byte, 즉 8-bits 크기의 변수이다. 따라서 $$2^8$$개의 정수(-128~127)를 표현할 수 있다. 예컨데, ASCII로 알파벳 'M'은 숫자 77로 저장된다. 변수를 호출하면, 저장된 숫자 77은 type에 맞춰져 'M'으로 반환된다. 그러나 실제로 저장되는 것은 1-byte integer이기 때문에, integer operation을 적용하라 수 있다.
 ```C++
 char ch = 'M';  // assign ASCII code for M to ch
@@ -94,6 +96,7 @@ cout << ch << i << ch + 1 << endl;
 보다 다양한 사례가 [chartype.cpp]에 있다.
 
 * The bool Type
+
 Bool은 a boolean value(true or false)를 표현한다. 
 Bool 타입이 소개되기 전까지, zero/nonzero number가 false/true로 사용되었다. 이는 아직까지도 유효하다.
 ```C++
@@ -117,6 +120,7 @@ bool stop = 0;  // stop assigned false
 ```
 
 * The sizeof Operator
+
 data type들의 size는 system에 따라 다르다. 특정한 data type의 크기를 확인할 때 sizeof을 사용한다.
 ```C++
 // sizeof operator yields size of type or of variable
