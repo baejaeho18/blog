@@ -61,7 +61,7 @@ x = (y = (z = 0));
 ```
 
 * Increment/Decrement Operators
-
+    한 식에 증감 연산자를 두 번 사용해서는 안된다. C++은 이러한 상황에서 무엇이 정확한 우선순위인지 정해두지 않았다. Compiler에 따라 다른 결과가 나올 수 있다.
 ``` c++
 y = ++z; // z += 1, y = z
 y = z--; // temp = z, z -= 1, y = temp
@@ -69,13 +69,9 @@ y = z--; // temp = z, z -= 1, y = temp
 x = 2 * x++ * (3 - ++x);    // ambiguous!
 ```
 
-- Never ever use them twice in one equation
-- C++ doesn't define the correct behaviour, so it depends on compiler
-
 * Bitwise Operators
-
-Operate on the bits of integer values
-- shift(<<, >>), negation(~), AND(&), OR(|), XOR(^)
+> Operate on the bits of integer values
+    - shift(<<, >>), negation(~), AND(&), OR(|), XOR(^)
 
 ``` c++
 unsigned char a = 13;
