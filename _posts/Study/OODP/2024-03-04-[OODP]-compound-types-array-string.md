@@ -10,7 +10,9 @@ tags: oodp
 ## Compound Types
 - Built on basic types.
 - Arrays, strings, pointers, structures
+
 <!--more-->
+
 ### Array
 > a data form that can hold several values, all of one type
 

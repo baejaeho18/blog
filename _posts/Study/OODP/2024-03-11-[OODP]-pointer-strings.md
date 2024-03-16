@@ -10,7 +10,6 @@ tags: oodp
 ## Compound Types
 - Built on basic types.
 - Arrays, strings, pointers, structures
-<!--more-->
 
 ### Pointers
 > Variable that holds the address of a value in Linear memory model
@@ -18,6 +17,7 @@ tags: oodp
 Linear memory model은 **flat memory model**이라고 불리기도 한다.
 
 프로그램 기준에서 memory는 continuous memory addresses를 가진 것처럼 보이기 때문이다. 이것은 실제 physical addresses와는 다르다.
+<!--more-->
 
 ![memory-appearance](/assets/img/2024-03-06/memory-appearance.png)
 
@@ -46,9 +46,10 @@ int *ptr = &val;    // pointer to integer initialized to &val
 char *ptr2, e;      // while ptr2 is a pointer to char, e is a char variable;
 ```
 
+좀 더 다양한 예시가 [address.cpp]에 마련되어 있다.
 
 - Dereferencing Operator(*) :
-**\*pointer**는 pointer에 저장된 위치에 담김 값을 기리킨다.
+**\*pointer**는 pointer에 저장된 위치에 담긴 값을 기리킨다.
 
 ```c++
 *ptr = 100;     // equivalent to 'val = 100;'
@@ -131,21 +132,17 @@ strcpy(buff, str);
 cout << animal << endl;
 cout << str << endl;
 ```
-    - 
+
 
 
 ## Questions?
-**Q1.** Array는 assignment operator(=)를 사용해서 복사할 수 없지만, Structure는 '='를 사용해서 복사할 수 있다. 그렇다면 Structure 안에 있는 Array도 '='를 사용해서 그 Structure를 복사할 때 복사가 될까? 
-**A1.** Yes. 어떤 operation을 통해 되는지 구현해보고 싶네.
+**Q1.** Pointer에 저장된 값(ptr)는 특정 변수의 주소(&var)이고, Pointer가 역참조 값(*ptr)은 변수의 값(var)이라면, 왜 초기화할 떄 'int *ptr = &val;'라고 쓰는가?  <br>
+**A1.** 'int *ptr = &val;'은 'int *ptr; ptr = &val;'을 한 줄로 축약하기 위한 약속이다.
 
-**Q2.** 왜 Array는 Structure과 달리 assignment operator(=)를 사용할 수 없게 설계되었을까? 어떤 사상에 의해서일까?
-**A2.** 
-
-**Q3.** Enumerator에 일부만 정수를 할당한다면 나머지는 어떻게 할당될까? 만약 앞에서 자동으로 할당된 정수와 중복되는 값을 나중에 할당한다면 어떻게 될까?
-**A3.** 
-
-**Q4.** Pointer에 저장된 값(ptr)는 특정 변수의 주소(&var)이고, Pointer가 역참조 값(*ptr)은 변수의 값(var)이라면, 왜 초기화할 떄 'int *ptr = &val;'라고 쓰는가? 그런데 왜 '역참조'라는 명칭을 쓰는 건가?
+**Q2.** 그런데 왜 '역참조'라는 명칭을 쓰는 건가? <br>
+**A2.** 참조라는 용어는 현재 상태에 대한 근거가 외부에 있을 때 사용한다. dereferencing operator(*)는 현재 메모리에 담긴 값을 가리키는 연산자다. '변수값(상태)'이 '메모리 위치(근거)'를 참조하는 것과 반대로, 메모리 위치에서 변수값을 가져오는 역참조 과정을 수행한다.
 
 
 
 <!-- Links -->
+[address.cpp]: 
