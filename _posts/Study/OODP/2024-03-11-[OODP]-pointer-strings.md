@@ -109,9 +109,6 @@ ps[2] = 5;      // equivalent to *(ps+2) = 5
 
     - string의 끝을 뜻하는 Null-character('\0')을 반드시 넣어줘야함.
     - C++에서는 string literals 사이에 whitespace(spaces, tabs, and newlines)만 존재한다면 자동으로 합쳐준다.
-```c++
-// ??
-```
 
 - string class library
 > We can also use string functions of C++ standard libraries using pointers
@@ -146,4 +143,6 @@ cout << str << endl;
 
 <!-- Links -->
 [address.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/address.cpp
-[ptr_str.cpp]: 
+[ptr_arith.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/ptr_arith.cpp
+[ptr_string.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/ptr_string.cpp
+[ptr_structure.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/ptr_structure.cpp

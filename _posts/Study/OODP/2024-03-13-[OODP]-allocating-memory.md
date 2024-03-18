@@ -47,6 +47,7 @@ size를 선언할 때, 변수를 사용할 수 있다.
 ``` c++
 int *psome = new int[n_elems];  // 메모리 공간 크기 = sizeof(int) * n_elems
 ```
+[array_new.cpp]를 참고하라.
 
 * Dynamic Structures : 마찬가지로 structure를 new로 할당할 수 있다.
 
@@ -83,5 +84,10 @@ String Class는 구 char array보다 기능적으로 상위호환이다.
 **Q3.** 그럼 vector Template class는 내부가 linked list로 구현되어 있는 건가요? 또, Template은 헤더에 실제 구현도 넣게 되어 있던데, vector 헤더 파일도 그렇게 구성되어 있나요? <br>
 **A3.** 
 
+**Q4.** delete와 같이 할당 해제하면, 해당 메모리의 값들이 reset되는 건가요, 아니면 값을 그대로 두되 할당 여부에 대한 flag 값만 바뀌는 건가요? <br>
+**A4.**
+
+
 <!-- Links -->
-[use_new.cpp] : 
+[use_new.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/use_new.cpp
+[array_new.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/array_new.cpp
