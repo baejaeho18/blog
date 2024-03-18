@@ -72,7 +72,26 @@ else        c = b;
     default     : statement(s)      // default is optional
 }
 
+integer-expression을 통해 맞는 cases로 jump한다.
+각 케이스에 **break**문이 있다면 'jump END'의 역할을 한다.
+default문은 주로 error handling에 쓰이는데, 어떤 case에도 존재하지 않을 경우 실행된다.
+
 ### break and continue Statements
+> break&continue: enable a program to skip over parts of the code
+
+* break: used in switch or loops. Skip the rest of the code
+* continue: used in loops to skip the rest of the body of the loop and then start a new loop cycle
+
+![break_continue](/assets/img/2024-03-18/break_continue.png)
+
+### File 입출력
+> File I/O in C++ is very similar to console I/O using cin/cout
+
+우선 **fstream** 헤더파일을 포함해야한다.
+이 안에는 파일을 쓰는 **ofstream**과 파일을 읽어오는 **ifstream** classes가 존재한다.
+
+
+
 
 ## Questions?
 **Q1.** 파이썬에서 elif라는 특유의 형태가 존재하는 것이, indentation에 민감하여 c++처럼 whitespace생략으로 else if를 인식할 수 없기 때문인건가요? 그럼 c/c++이나 java 컴파일러에는 'else if'라는 예약어가 존재하는 것이 아니라, 'else'와 'if'만 있는 건가요? <br>
