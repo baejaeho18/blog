@@ -81,5 +81,5 @@ cout << v << endl;  // 2
 
 
 <!-- Links -->
-[structure.cpp]: 
-[enum.cpp]: 
+[structure.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/structure.cpp
+[enum.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/enum.cpp
