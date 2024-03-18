@@ -5,10 +5,10 @@ category: study
 tags: oodp
 ---
 
+<!--more-->
 > POSTECH OODP Lecture at 24SS
 
 ## Branch Statements
-
 ### if Statement
 > Syntax: if (test_expression) statement
 
@@ -84,7 +84,9 @@ default문은 주로 error handling에 쓰이는데, 어떤 case에도 존재하
 
 ![break_continue](/assets/img/2024-03-18/break_continue.png)
 
-### File 입출력
+
+
+## File 입출력
 > File I/O in C++ is very similar to console I/O using cin/cout
 
 우선 **fstream** 헤더파일을 포함해야한다.
@@ -92,10 +94,11 @@ default문은 주로 error handling에 쓰이는데, 어떤 case에도 존재하
 
 
 
-
 ## Questions?
 **Q1.** 파이썬에서 elif라는 특유의 형태가 존재하는 것이, indentation에 민감하여 c++처럼 whitespace생략으로 else if를 인식할 수 없기 때문인건가요? 그럼 c/c++이나 java 컴파일러에는 'else if'라는 예약어가 존재하는 것이 아니라, 'else'와 'if'만 있는 건가요? <br>
-**A1.** 
+**A1.** 그럴싸한 가설인 것 같다. 
+**+** C 예약어 목록: asm, auto, break, case, char, const, continue, default, do, double, else, enum, extern, float, for, goto, if, int, long, register, return, short, signed, sizeof, static, struct, switch, typedef, union, unsigned, void, volatile, while [출처:C++예약어(Keyword)목록]
+**+** C++에서 추가된 예약어: catch, class, delete, except, finally, friend, inline, new, operator, private, protected, public, template, this, throw, try, virtual [출처:예약어]
 
 **Q2.** C++에서 '?'연산자 말고도 삼항연산자가 존재하나요? <br>
 **A2.** 아니요. Conditional Operator(?) is the only C++ operator that requires 3 operands.
@@ -105,3 +108,5 @@ default문은 주로 error handling에 쓰이는데, 어떤 case에도 존재하
 <!-- Links -->
 [mul_dim_array.cpp]: 
 [cctype.cpp]: 
+[출처:C++예약어(Keyword)목록]: https://blog.naver.com/ydk928/60109312145
+[출처:예약어]: https://www.devkuma.com/docs/c/%EC%98%88%EC%95%BD%EC%96%B4-keyword/
