@@ -69,6 +69,9 @@ int v = two;        // two converted to integer 2
 cout << v << endl;  // 2
 ```
 
+enum과 관련된 더 예제가 [enum.cpp]에 준비되어 있다.
+
+
 ## Questions?
 **Q1.** Array는 assignment operator(=)를 사용해서 복사할 수 없지만, Structure는 '='를 사용해서 복사할 수 있다. 그렇다면 Structure 안에 있는 Array도 '='를 사용해서 그 Structure를 복사할 때 복사가 될까? 
 **A1.** Yes. 어떤 operation을 통해 되는지 구현해보고 싶네.

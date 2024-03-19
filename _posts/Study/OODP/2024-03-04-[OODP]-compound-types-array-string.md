@@ -14,7 +14,7 @@ tags: oodp
 <!--more-->
 
 ### Array
-> a data form that can hold several values, all of one type
+> A data form that can hold several values, all of one type
 
 ```c++
 int cards[4] = {3, 6, 8, 10};
@@ -61,8 +61,6 @@ cout << "Length of string in charr before input: "
 **Q1.** Array에서 size를 const로 선언한 값으로 정할 수 있는가? <br>
 **A1.** 물론이다. [string.cpp]과 [cinstr.cpp]에서 예시를 확인할 수 있다.
 
-**Q2.** 
-**A2.**
 
 
 <!-- Links -->

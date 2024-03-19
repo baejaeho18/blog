@@ -61,6 +61,7 @@ cout << val << endl;    // 500
 ```
 
 - 포인터의 크기는 가리키는 값의 type과 관계 없이 동일하다. 시스템의 memory address의 크기에 의해 결정된다. (32-bit:4GB -> 4, 64-bit:16TB -> 8)
+
 ```c++
 cout << sizeof(char) << ", " << sizeof(char*) << endl;      // 1, 8
 cout << sizeof(int) << ", " << sizeof(int*) << endl;        // 4, 8
@@ -93,7 +94,9 @@ cout << stacks[0] << ", " << stacks[1] << endl;
 cout << *stacks << ", " << *(stacks + 1) << endl;
 cout << *ps << ", " << *(ps+1) << endl;        
 ```
+
     * name of array = the address of the first element
+
 ```c++
 *(ps+2) = 5;    // ps+2 == (the addr in ps) + 2*sizeof(short)
                 // which is the addr of stacks[2]
@@ -143,6 +146,7 @@ cout << str << endl;
 
 <!-- Links -->
 [address.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/address.cpp
+
 [ptr_arith.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/ptr_arith.cpp
 [ptr_string.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/ptr_string.cpp
 [ptr_structure.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/ptr_structure.cpp
