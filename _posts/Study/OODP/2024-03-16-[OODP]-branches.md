@@ -1,11 +1,10 @@
 ---
 layout: post
-title: "[OODP] 3. Branching Statements and Logical Operators"
+title: "[OODP] 4. Branching Statements and Logical Operators"
 category: study
 tags: oodp
 ---
 
-<!--more-->
 > POSTECH OODP Lecture at 24SS
 
 ## Branch Statements
@@ -14,6 +13,8 @@ tags: oodp
 
 ### if else Statement
 > Syntax: if (test_expression) statement1 else statement2
+
+<!--more-->
 
 ### if else if else Construction
 두 가지 선택지보다 더 많은 선택지가 존재할 때, 사용된다.
@@ -64,17 +65,17 @@ else        c = b;
 ```
 
 ### Switch Statement
-> Syntax: switch (integer-expression)
-{
-    case label1 : statement(s)
-    case label2 : statement(s)
-    ...
-    default     : statement(s)      // default is optional
+> Syntax: switch (integer-expression) <br>
+{ <br>
+    case label1 : statement(s) <br>
+    case label2 : statement(s) <br>
+    ... <br>
+    default     : statement(s)      // default is optional <br>
 }
 
-integer-expression을 통해 맞는 cases로 jump한다.
+integer-expression을 통해 맞는 case로 jump한다.
 각 케이스에 **break**문이 있다면 'jump END'의 역할을 한다.
-default문은 주로 error handling에 쓰이는데, 어떤 case에도 존재하지 않을 경우 실행된다.
+default문은 주로 error handling에 쓰이는데, 어떤 case에도 해당하지 않을 경우 실행된다.
 
 ### break and continue Statements
 > break&continue: enable a program to skip over parts of the code

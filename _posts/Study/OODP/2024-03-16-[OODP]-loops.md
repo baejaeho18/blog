@@ -7,7 +7,6 @@ tags: oodp
 
 > POSTECH OODP Lecture at 24SS
 
-## Loop Statements
 ### Compound Statements, or Blocks
 > Consists of paired braces and statements
 
@@ -25,6 +24,7 @@ cout << y << endl;      // invalid, won't compile
 ```
 Block을 사용해서 변수의 범위(scope)를 제한할 수 있다.
 
+## Loop Statements
 ### Relational Expressions
 'x < y'와 같은 relational expression은 **true**와 **false**같은 bool value를 계산한다.
 true는 (int)1, false는 (int)0로 반환된다. 
@@ -67,4 +67,4 @@ C++은 multi-dimensional array type을 제공하지는 않기 때문에, 자신�
 **A1.** Comma Operator(,)를 기준으로 앞 뒤 연산을 실행한 후, 뒤의 expression을 a에 할당합니다.
 
 <!-- Links -->
-[mul_dim_array.cpp]
+[mul_dim_array.cpp]: 

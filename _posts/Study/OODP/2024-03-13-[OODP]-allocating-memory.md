@@ -80,7 +80,7 @@ String Class는 구 char array보다 기능적으로 상위호환이다.
 
 동적할당을 신경쓰지 않고, 초기화 할 때 크기를 가변적으로 정할 수 있다.
 
-
+일반 Arrays와 Vector Object, Array Object를 비교한 코드는 [vector.cpp]에 있다.
 
 ## Questions?
 **Q1.** new와 malloc의 어떤 차이가 있을까? <br>
@@ -99,5 +99,7 @@ String Class는 구 char array보다 기능적으로 상위호환이다.
 <!-- Links -->
 [use_new.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/use_new.cpp
 [array_new.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/array_new.cpp
-[mixtypes.cpp]: 
-[vector.cpp]: 
+
+[mixtypes.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/mixtypes.cpp
+
+[vector.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/vector.cpp
