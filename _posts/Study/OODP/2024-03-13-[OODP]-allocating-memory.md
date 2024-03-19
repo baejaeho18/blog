@@ -91,3 +91,5 @@ String Class는 구 char array보다 기능적으로 상위호환이다.
 <!-- Links -->
 [use_new.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/use_new.cpp
 [array_new.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/CompoundTypes/array_new.cpp
+[mixtypes.cpp]: 
+[vector.cpp]: 

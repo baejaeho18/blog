@@ -96,8 +96,8 @@ default문은 주로 error handling에 쓰이는데, 어떤 case에도 존재하
 
 ## Questions?
 **Q1.** 파이썬에서 elif라는 특유의 형태가 존재하는 것이, indentation에 민감하여 c++처럼 whitespace생략으로 else if를 인식할 수 없기 때문인건가요? 그럼 c/c++이나 java 컴파일러에는 'else if'라는 예약어가 존재하는 것이 아니라, 'else'와 'if'만 있는 건가요? <br>
-**A1.** 그럴싸한 가설인 것 같다. 
-**+** C 예약어 목록: asm, auto, break, case, char, const, continue, default, do, double, else, enum, extern, float, for, goto, if, int, long, register, return, short, signed, sizeof, static, struct, switch, typedef, union, unsigned, void, volatile, while [출처:C++예약어(Keyword)목록]
+**A1.** 그럴싸한 가설인 것 같다. <br>
+**+** C 예약어 목록: asm, auto, break, case, char, const, continue, default, do, double, else, enum, extern, float, for, goto, if, int, long, register, return, short, signed, sizeof, static, struct, switch, typedef, union, unsigned, void, volatile, while [출처:C++예약어(Keyword)목록] <br>
 **+** C++에서 추가된 예약어: catch, class, delete, except, finally, friend, inline, new, operator, private, protected, public, template, this, throw, try, virtual [출처:예약어]
 
 **Q2.** C++에서 '?'연산자 말고도 삼항연산자가 존재하나요? <br>

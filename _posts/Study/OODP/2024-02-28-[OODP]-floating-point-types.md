@@ -45,7 +45,7 @@ float var2 = 2.34f; // To avoid warning, use the suffix
 ```
 
 ### Arithmetic Operators
-* C++ Arithmetic Operators
+* C++ Arithmetic Operators <br>
 Addition(+), Subtraction(-), Multiplication(*), Division(/), Modulus(%)
 
 위 연산자들을 사용하는 코드는 [float_arith.cpp]에서 볼 수 있다.
@@ -53,15 +53,15 @@ Addition(+), Subtraction(-), Multiplication(*), Division(/), Modulus(%)
 * Expressions and Assignment Operators
 > Expression: any value or any valid combination of values and operators consitute an expression
 
-    아래와 같은 할당문은 가능하다.
+아래와 같은 할당문은 가능하다.
 ``` c++
 mids = (cook = 4) + 6;
 x = y = z = 4;
 x = (y = (z = 0));
 ```
 
-* Increment/Decrement Operators
-    한 식에 증감 연산자를 두 번 사용해서는 안된다. C++은 이러한 상황에서 무엇이 정확한 우선순위인지 정해두지 않았다. Compiler에 따라 다른 결과가 나올 수 있다.
+* Increment/Decrement Operators <br>
+한 식에 증감 연산자를 두 번 사용해서는 안된다. C++은 이러한 상황에서 무엇이 정확한 우선순위인지 정해두지 않았다. Compiler에 따라 다른 결과가 나올 수 있다.
 ``` c++
 y = ++z; // z += 1, y = z
 y = z--; // temp = z, z -= 1, y = temp
@@ -71,7 +71,8 @@ x = 2 * x++ * (3 - ++x);    // ambiguous!
 
 * Bitwise Operators
 > Operate on the bits of integer values
-    - shift(<<, >>), negation(~), AND(&), OR(|), XOR(^)
+
+- shift(<<, >>), negation(~), AND(&), OR(|), XOR(^)
 
 ``` c++
 unsigned char a = 13;
@@ -84,6 +85,8 @@ unsigned char and = a & b;  // 4
 unsigned char or = a | b;   // 31
 unsigned char xor = a ^ b;  // 27
 ```
+위의 코드는 [bitwise.cpp]에서 다시 확인할 수 있다.
+실제 비트의 변화를 보고 싶다면 [bit_displayer.h]를 사용하면 된다.
 
 * Type Conversions
 > C++ provides automatic type conversion
@@ -139,3 +142,6 @@ int main() {
 [init_cast.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/FundamentalTypes/init_cast.cpp
 
 [bondini.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/FundamentalTypes/bondini.cpp
+
+[bitwise.cpp]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/FundamentalTypes/bitwise.cpp
+[bit_displayer.h]: https://github.com/baejaeho18/code/blob/main/0-Education/cpp/DataTypes/FundamentalTypes/bit_displayer.h
