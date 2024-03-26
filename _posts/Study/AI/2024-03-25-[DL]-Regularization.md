@@ -9,7 +9,7 @@ tags: ai
 
 머신러닝에서 중요한 문제는 어떻게 훈련 데이터 뿐만 아니라, 실제 데이터(new input)에 대해서도 잘 동작하도록 할 것인가다. 
 training error가 다소 발생하더라도 test error를 잡는 것이 **regularization**의 전략이다.
-정규화의 정의는 다음과 같다. "Any modification we make to a learning algorithm that is intended to reduce its generalization error but not its training error."
+정규화란, "any modification we make to a learning algorithm that is intended to reduce its generalization error but not its training error."
 정규화 전략에는 제약(constraints)를 거는 것과 여러 가설을 결합(ensemble)하는 것이 있다.
 constraints를 추가하는 방식에는 파라미터 값에 제약을 걸거나, 사전지식을 부여하거나, 모델을 단순화(simpler)하거나, determined 문제로 변환하는 등이 있다.
 이상적인 정규화는 분산(variance)를 크게 감소시키면서 편향(bias)는 적절하게 유지하는 것이다.
@@ -24,19 +24,29 @@ regularizing estimator(추정기)는 입력값에 대해 예측을 생성하고,
 이때, 각 layer 계층마다 별도의 가중치 감쇠(decay) 계수α를 적용하는 것이 성능적으로 우월하지만 각 계수를 결정하는 비용이 너무 크기 때문에 모든 계층에 동일한 가중치 감쇠를 적용한다.
 
 ## 7.2 Norm Penalties as Constrained Optimization
-제약된 최적화 문제로써 정규화를 적용하는 방법.
-예를 들면, 가중치의 크기를 특정 임계값으로 제한하여 모델을 단순화.
+모델의 복잡도를 제어하기 위해 가중치에 제약을 가하는 또다른 정규화 방법에는 제약된 최적화 문제(constrained optimization)가 있다.
+이 접근 방식에서 KKT(Karush-Kuhn-Trucker) multipliers는 Largrange function과 유사한 역할을 한다. Largrange function은 제약 조건을 고려해 새로운 목표 함수를 만들어주는 함수로, 제약이 있는 최적화 문제를 해결하는데 사용된다.
+KKT 승수는 모델이 최적화 상태에 도달할 때, 각 제약 조건이 얼마나 '중요한지' 나타낸다.
+이로써 가중치의 크기를 특정 임계값으로 제한하는 정규화 항을 추가하여 모델을 단순화한다.
+
 
 ## 7.3 Regularization and Under-Constrained Promblems
-정규화가 과소 적합 문제에 어떻게 영향을 미치는지에 대한 이해.
-예를 들면, 네트워크의 복잡도를 제어하여 과소적합을 방지.
+머신러닝에서 많이 사용되는 선형모델(선형회귀, PCA) 들은 역행렬을 계산해야 한다. 그러나 대상이 Singular(특이) 행렬일 경우, 역행렬이 존재하지 않는다. 어떤 방향으로도 분산이 없거나, 입력 feature의 수(열의 수)가 샘플의 수(행의 수)보다 적은 경우이다.
+이런 경우, 역행렬에 작은 상수와 단위행렬의 곱을 더하여 정규화한다.
+입력 특성(feature)의 수보다 관측된 데이터 샘플의 수가 적은 underdetermined 문제에 대해 이러한 pseudoinverse(유사 역행렬)로 정규화를 사용하여 여러 해로 인해 과적합되지 않도록 안정화할 수 있다.
+
 
 ## 7.4 Dataset Arguentation
-데이터 증강을 통해 학습 데이터셋의 다양성을 높이는 방법.
-예를 들면, 이미지 회전, 이동, 반전 등의 변형을 통해 학습 데이터셋을 확장.
+모델의 일반화 성능을 향상시키는 가장 효과적인 방법은 더 많은 데이터로 훈련시키는 것이다. 제한된 데이터 양으로부터 데이터 증강을 통해 학습 데이터셋의 다양성을 높이는 방법이다.
+특히 입력 데이터의 다양한 변환에도 동일한 결과를 도출하야하는 분류 작업에 유용하다.
+예를 들면, 이미지 회전, 이동, 반전 등의 변형을 통해 학습 데이터셋을 확장하는 것이다.
+이러한 접근 방식은 특정한 모델과 도메인에만 유용하다는 것을 유의해야 한다.
+예를 들어, 밀도추정작업에 대한 데이터 증강은 이미 문제를 해결하기 전까지는 굉장히 어렵다.
 
 ## 7.5 Noise Robustness
-잡음이 있는 데이터에서의 모델 안정성 개선.
+앞 챕터와 마찬가지로 데이터를 증강하지만, 오히려 잡음(noise)를 추가하는 전략이다.
+이는 noise 주입이 마치 weight norm penalty와 같이 작용한다는 것에 근거를 둔다.
+특히, 이미 잡음이 있는 데이터에서 숨겨지 모델 안정성 개선.
 예를 들면, 데이터에 노이즈를 추가하여 모델이 노이즈에 강건하게 학습하도록 함.
 
 ## 7.6 Semi-Supervised Learning
@@ -85,7 +95,7 @@ regularizing estimator(추정기)는 입력값에 대해 예측을 생성하고,
 **Q1.** 어떻게 추정기가 모델의 편향과 분산을 조절하는지 잘 모르겠습니다. 추정기의 정규화가 어떻게 이뤄지는지 이해가 잘 가지 않습니다.  <br>
 **A1.** 
 
-**Q2.**     <br> 
+**Q2.** input에 noise를 추가한다는 것은 직관적으로 이해가 됩니다. 그런데 noise를 가중치에 적용한다는 것이 왜 성능 향상에 도움이 되는지 잘 이해가 가지 않습니다. 경험적 추론의 결과인가요? <br> 
 **A2.** 
 
 **Q3.**     <br>
