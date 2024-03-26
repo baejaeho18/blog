@@ -9,11 +9,16 @@ tags: ai
 
 머신러닝에서 중요한 문제는 어떻게 훈련 데이터 뿐만 아니라, 실제 데이터(new input)에 대해서도 잘 동작하도록 할 것인가다. 
 training error가 다소 발생하더라도 test error를 잡는 것이 **regularization**의 전략이다.
-정규화란, "any modification we make to a learning algorithm that is intended to reduce its generalization error but not its training error."
+
+> Regularization : any modification we make to a learning algorithm that is intended to reduce its generalization error but not its training error
+ 
+<!--more-->
 정규화 전략에는 제약(constraints)를 거는 것과 여러 가설을 결합(ensemble)하는 것이 있다.
 constraints를 추가하는 방식에는 파라미터 값에 제약을 걸거나, 사전지식을 부여하거나, 모델을 단순화(simpler)하거나, determined 문제로 변환하는 등이 있다.
 이상적인 정규화는 분산(variance)를 크게 감소시키면서 편향(bias)는 적절하게 유지하는 것이다.
+
 regularizing estimator(추정기)는 입력값에 대해 예측을 생성하고, 실제값과의 오차를 최소화하기 위해 파라미터를 조정하는 과정에서 복잡도를 조절한다??
+
 파라미터와 층의 수와 크기가 클수록, 복잡도와 모델의 크기가 크고 과적합(overfitting)의 위험도 올라간다. 적절한 정규화된 큰 모델이 일반적으로 가장 최적화된 모델이다.
 
 ## 7.1 Parameter Norm Penalties
@@ -36,7 +41,7 @@ KKT 승수는 모델이 최적화 상태에 도달할 때, 각 제약 조건이 
 입력 특성(feature)의 수보다 관측된 데이터 샘플의 수가 적은 underdetermined 문제에 대해 이러한 pseudoinverse(유사 역행렬)로 정규화를 사용하여 여러 해로 인해 과적합되지 않도록 안정화할 수 있다.
 
 
-## 7.4 Dataset Arguentation
+## 7.4 Dataset Augmentation
 모델의 일반화 성능을 향상시키는 가장 효과적인 방법은 더 많은 데이터로 훈련시키는 것이다. 제한된 데이터 양으로부터 데이터 증강을 통해 학습 데이터셋의 다양성을 높이는 방법이다.
 특히 입력 데이터의 다양한 변환에도 동일한 결과를 도출하야하는 분류 작업에 유용하다.
 예를 들면, 이미지 회전, 이동, 반전 등의 변형을 통해 학습 데이터셋을 확장하는 것이다.
@@ -96,16 +101,41 @@ KKT 승수는 모델이 최적화 상태에 도달할 때, 각 제약 조건이 
 
 ## Questions
 **Q1.** 어떻게 추정기가 모델의 편향과 분산을 조절하는지 잘 모르겠습니다. 추정기의 정규화가 어떻게 이뤄지는지 이해가 잘 가지 않습니다.  <br>
-**A1.** 
+**A1.** Try all equations drive as possible.
 
 **Q2.** input에 noise를 추가한다는 것은 직관적으로 이해가 됩니다. 그런데 noise를 가중치에 적용한다는 것이 왜 성능 향상에 도움이 되는지 잘 이해가 가지 않습니다. 경험적 추론의 결과인가요? <br> 
 **A2.** 
 
-**Q3.** 제 기억이 잘못되었을 수도 있지만, 지난 강의에서 누군가의 질문에 대답하시길 'local minimun is enough'라는 말을 하셨던 것 같습니다. 그런데 다시 생각해도 이해가 되지 않습니다. local minimun은 제게 마치 '등산하러 가서 화장실 옥상에 앉아있는 것'같은 상태로 들립니다. 왜 그정도면 충분하다는 걸까요? <br>
+**Q3.** 제 기억이 잘못되었을 수도 있지만, 지난 강의에서 누군가의 질문에 대답하시길 'local minimum is enough'라는 말을 하셨던 것 같습니다. 그런데 다시 생각해도 이해가 되지 않습니다. local minimum은 제게 마치 '등산하러 가서 화장실 옥상에 앉아있는 것'같은 상태로 들립니다. 왜 그정도면 충분하다는 걸까요? <br>
 **A3.** 
 
-**Q4.** 더불어, local minimun을 해소하기 위해 early stopping과 multi-task learning 개념을 다소 빌려올 수 있을 것 같습니다. weight 변화량이 충분히 작아지면, 한쪽에서는 현재 상태에서 하던대로 local minumun을 정확하게 찾고, 다른 쪽들에서는 현재 상태를 저장하고 큰 폭으로 새로운 minimun 후보들을 찾아 나서면 global minumun을 충분히 찾을 수 있지 않나요? 당연한 방법인 것 같은데 제가 어디서 놓쳤는지 모르겠습니다. <br>
+**Q4.** 더불어, local minimum을 해소하기 위해 early stopping과 multi-task learning 개념을 다소 빌려올 수 있을 것 같습니다. weight 변화량이 충분히 작아지면, 한쪽에서는 현재 상태에서 하던대로 local minumun을 정확하게 찾고, 다른 쪽들에서는 현재 상태를 저장하고 큰 폭으로 새로운 minimum 후보들을 찾아 나서면 global minumun을 충분히 찾을 수 있지 않나요? 당연한 방법인 것 같은데 제가 어디서 놓쳤는지 모르겠습니다. <br>
 **A4.** 
+
+**Q5.** Could you elaborate on the circumstances under which parameter tying and parameter sharing are used?  <br>
+**A5.** Good, it's unknown answer. At CNN, we can use sharing becuase we know it's okay. On the other hand, parameter tying is a little bit tricky. Parameter sharing means use same parameters, but tying means use different parameter but different to much.
+
+
+**Q6.** Data augmentation에서 domain에 대한 고려가 얼마나 중요합니까? <br>
+**A6.** domain마다 가능한 변환이 다르다. char의 경우 vertical flip을 하지 않는다. 얼굴 사진의 경우 상하반전을 하지 않는다. wave signal의 경우 spectrum화한 후, 다시 시각화했을 때 더 잘 된다. 엑스레이 사진의 경우 다소의 명암조절이나 shift 변환을 할 수 있을 것이다. 즉, 변환을 해도 여전히 유효한 결과인지 domain에 대한 지식이 있어야 한다.
+
+**Q7.** Is there a guideline or criteria to assist determining whether to apply L1 regularization or L2 regularization when faced with the choice between the two methods? <br>
+**A7.** When you used a more sparse model, L1 would be good.
+
+**Q8.** Can L2 regularization also have a value of zero? <br>
+**A8.** Yes, but not frequently. L1 could have lots of zero. Imagine a rectangle(L1) and circle(L2) contacts with object function.
+
+**Q9.** Which of these techniques do you think is considered most impo9rant? <br>
+**A9.** Early stopping and dropout must be used. As possible data augmentation should. L1 and L2 is not used always, but it should be on table.
+
+**Q10.** In adversarial training, humans may not be aware, but it can cause confusion in machine learning. How does this relate to security from a security standpoint? <br>
+**A10.** Model and brain have different way of understanding. So it must have big gap. This is the problem of ????????
+
+**Q11.** What is Weight scaling inference rule? <br>
+**A11.** Inference use all the nodes and change the scale of weight, intead repeat dropout node.
+
+**Q12.** 보통 데이터셋을 train-valid-test set으로 나눈다. 만약 데이터셋이 너무 작다면, 원본 데이터셋을 저 셋으로 나눈 후에 training dataset에 data augmentation을 징행하기보다 data augmentation을 한 후에 셋으로 나누어도 되는가? <br>
+**A12.** No, it would be cheating. Because data augmentation is generating new data which really similar to original data.
 
 
 <!-- Links -->
