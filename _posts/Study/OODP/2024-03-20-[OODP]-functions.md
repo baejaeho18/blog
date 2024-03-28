@@ -65,7 +65,18 @@ cout << "&cookies:" << &cookies << endl;
 ```
 위의 출력이 어떻게 이뤄질지 알고 있는가?
 헷갈린다면, 'Compound Type'을 다시 정주행하시라.
+중요한 것은, function에서 array를 넘겨 받을 때 주소로 받고, 이 주소는 'arr[]'여도 되고 '* arr'여도 된다는 것이다.
+적어도 function prototype의 header에서만은 두 표현은 완전히 동일하다.
+이 표현을 통해 call by value가 array 내용 전체가 아닌, single address로 이루어져 cost of time and memory가 감소한다.
 
+[arrfun.cpp], [strgfun.cpp]
+
+그러나 호출된 함수가 호출한 함수의 원본값을 사용하기 때문에 data corruption이 발생할 위험이 있다.
+이러한 상황을 막기 위해 **const** modifier가 C++에서 제공된다.
+
+### Pointers and const
+
+[constptr.cpp]
 
 
 
@@ -80,6 +91,7 @@ cout << "&cookies:" << &cookies << endl;
 <!-- Links -->
 [포인터]: https://handhp1.tistory.com/47
 
-
-
+[arrfun.cpp]:
+[strgfun.cpp]:
+[constptr.cpp]:
 [arr_func_ptr.cpp]: 
