@@ -28,6 +28,10 @@ char_ptr ptr1, ptr2;    // equiv. to
 typedef 
 
 ```
+[strctfun.cpp]
+
+C++에서 Class object는 structure에 기반하고 있기 때문에, object 역시 동일한 방법으로 function에서 넘겨받을 수 있다. 
+array template class를 활용한 [arr_obj.cpp]를 참고하면 좋을 것 같다.
 
 ### Pointers to Function
 C/C++에서 function은 data items처럼 address가 있다. function의 주소는 function에 대한 기계어가 저장된 곳의 시작주소이다.
@@ -52,7 +56,7 @@ func_type pf;
 // equivalent to double (*pf)(int);
 ```
 function pointer란 포인터의 형태로 선언한 함수를 말한다.
-[function_pointer.cpp] 예제를 통해 어떻게 활용되는지 다시 확인하는 것을 추천한다.
+[fun_ptr.cpp], [arr_fun_ptr.cpp] 예제를 통해 어떻게 활용되는지 다시 확인하는 것을 추천한다.
 
 
 ## How Function Call Works
@@ -114,5 +118,9 @@ compiler가 바꾸지 않는 경우에는 inline code가 너무 크거나, recur
 **A2.** 
 
 <!-- Links -->
-[function_pointer.cpp]: 
+[strctfun.cpp]:
+[strctptr.cpp]:
+[arr_obj.cpp]:
+[fun_ptr.cpp]: 
+[arr_fun_ptr.cpp]:
 [inline.cpp]: 
