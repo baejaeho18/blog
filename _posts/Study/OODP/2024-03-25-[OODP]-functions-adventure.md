@@ -11,7 +11,7 @@ tags: oodp
 function의 매개변수로 structure 역시 올 수 있다.
 그러나 크기가 큰 structure의 경우, 모든 값을 복사(call by value)하는 것은 낭비가 될 것이다.
 그래서 구조체를 활용하는 함수는 대체로 element copy보다는 reference copy를 포인터를 사용해 작성된다.
-
+<!--more-->
 * typedef : Defining an alias of a data type
     - syntax: typedef typeName aliasName;
 
@@ -100,8 +100,9 @@ inline double square(double x) {
 
 a = square(3.0);        // compiler embed it to a = 3.0 * 3.0;
 ```
-inline keyword는 compiler가 inline code로 대체하도록 제안한다. 그러나 macro처럼 무조건 바꾸는 것이 아니라, compiler가 정말로 바꿀지 결정하도록 한다.
+[inline.cpp]와 같이, inline keyword는 compiler가 inline code로 대체하도록 제안한다. 그러나 macro처럼 무조건 바꾸는 것이 아니라, compiler가 정말로 바꿀지 결정하도록 한다.
 compiler가 바꾸지 않는 경우에는 inline code가 너무 크거나, recursion을 사용하는 것 등이 있다. 이런 경우, 일반적인 function과 같이 동작한다.
+
 
 
 ## Questions?
@@ -114,3 +115,4 @@ compiler가 바꾸지 않는 경우에는 inline code가 너무 크거나, recur
 
 <!-- Links -->
 [function_pointer.cpp]: 
+[inline.cpp]: 

@@ -13,13 +13,14 @@ tags: oodp
 int rats = 101;
 int &rodents = rat;     // rodent is a reference
 ```
-이렇게 선언할 때 **&** 연산자를 사용할 경우, 메모리를 가리키는 연산자가 아니라 rats라는 변수의 별명(alias)가 rodents라는 뜻이다.
+위와 같이 **&** 연산자를 사용해 선언할 경우, 메모리를 가리키는 연산자가 아니라 rats라는 변수의 별명(alias)가 rodents라는 뜻이다.
 
 ### Comparison with pointers
 > ref_variable == (*pointer_variable)
 
 reference variable을 선언하면서 반드시 초기화가 함께해야 한다.
 reference는 **const** pointer와 유사해서, 선언한 이후 값을 변경할 수 없다. 
+<!--more-->
 ``` c++
 int &rodents = rats;
 // is equivalent to
@@ -49,7 +50,7 @@ void swapv(int a, int b) // a, b are new variables (doesn’t work!)
     b = temp;
 }
 ```
-위 함수들의 결과는 [swap.cpp]에서 확인할 수 있다.
+위 함수들의 결과는 [swaps.cpp]에서 확인할 수 있다.
 사실 fundamental type들은 굳이 reference parameter을 사용할 필요는 없다. 본래 (커다란) structure과 class에 사용되기 위해 만들어졌다. reference argument를 사용하면
 1) 호출하는 함수의 data object에 접근할 수 있고
 2) passing by reference로 불필요한 data object 전체를 복사하지 않아도 된다.
@@ -142,5 +143,6 @@ void Swap(T &a, T& b);
 **A3.** Nope, we'll practice that on next lecture.
 
 <!-- Links -->
-[swap.cpp]: 
+[swaps.cpp]: 
 [reference]: 
+[strquote.cpp]: 

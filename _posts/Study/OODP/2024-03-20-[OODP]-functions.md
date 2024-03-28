@@ -24,6 +24,11 @@ crtbegin.o crtprec80.o libcilkrts.so libitm.so libmpxwrappers.so libubsan.a
 ```
 
 ## Function ProtoType
+컴파일러는 prototype에 근거하여 return value를 저장할 공간을 만들고, 선언된 argument와 실제 argument 개수와 type을 비교한다. 만약 다르다면, 가능한 범위 내에서 올바른 type으로 바꿔준다.
+C에서는 int형 argument에 double형 값을 넣으면, 64-bits 중 첫 16-bits만 읽어 오류를 초래할 수 있다.
+그러나 C++은 arithmetic type이라면 자동으로 type conversion을 실행한다. 물론 언제나 가능한 것은 아니다. 소수점 이하의 작은 수는 단순히 날리면 되지만, 8.33E27처럼 int형의 범위를 초과하는 값일 경우 올바르게 변환되지 않는다. 이런 경우, compiler는 'possible data loss'를 경고한다.
+이러한 과정을 **static type checking**이라고 부른다.
+
 ### Function Arguents
 - Passing by value(call by value) : argument로부터 callee의 변수값을 복사해 사용한다.
 
@@ -43,9 +48,17 @@ void multiply2(int *p) {
 }
 ```
 
-pointer를 call by value로 봐야하는지 call by reference로 봐야하는지는 아직까지는 의견이 분분하다(학부생 수준의 토의에서다).
-나는 call by value로 봐야한다 편이지만, ~~확실히 맞는지도 모르겠고 유희거리에 가까우니 여기까지만 적겠다.~~ ~~여백이 부족하니 적지 않겠다~~
+pointer를 call by value로 봐야하는지 call by reference로 봐야하는지는 학부생 수준에서 많이들 헷갈려한다. 
+사실 pointer 역시 주소라는 값을 복수하는 것이기 때문에, call by value로 봐야한다. ~~여백이 부족하니 적지 않겠다~~
 포인터에 조금 더 알아보고 싶은 분은 [포인터]를 참고하셔도 좋을 것 같다.
+
+C++에서는 call by reference를 '&' 연산자를 활용해서 구현하는데, 이는 다음 강의에서 정리하겠다.
+
+## Functions and Arrays
+
+
+
+
 
 
 
@@ -59,3 +72,7 @@ pointer를 call by value로 봐야하는지 call by reference로 봐야하는지
 
 <!-- Links -->
 [포인터]: https://handhp1.tistory.com/47
+
+
+
+[arr_func_ptr.cpp]: 
