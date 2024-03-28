@@ -56,8 +56,15 @@ C++에서는 call by reference를 '&' 연산자를 활용해서 구현하는데,
 
 ## Functions and Arrays
 
+``` c++
+int cookies[10];
 
-
+cout << "cookies:" << cookies << endl;
+cout << "&cookies[0]:" << &cookies[0] << endl;
+cout << "&cookies:" << &cookies << endl;
+```
+위의 출력이 어떻게 이뤄질지 알고 있는가?
+헷갈린다면, 'Compound Type'을 다시 정주행하시라.
 
 
 
