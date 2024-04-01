@@ -126,7 +126,25 @@ void Swap(double &a, double &b);
 template <typename T>       // or template <class T>
 void Swap(T &a, T& b);
 ```
-아래 함수가 실제로 호출될 때, compiler가 자동으로 위의 함수 중 적합한 함수로 대체한다. 이를 (implicit) instantiation이라고 부른다.
+아래 함수가 실제로 호출될 때, compiler가 자동으로 위의 함수 중 적합한 함수를 생성하여 대체한다. 이를 (implicit) instantiation이라고 부른다.
+
+[func_temp.cpp]
+
+### Overloaded Templates
+그러나 모든 타입이 동일한 동작(algorithm)을 하지 않을 수 있다.
+이런 경우, [two_temps.cpp]처럼 template을 사용한 함수도 overloading하여 해결할 수 있다.
+
+### Explicit Specialization
+특정한 data type에 대해 특화된 함수를 정의하는 방식이다.
+예를 들어, array 타입 변수에는 '='를 사용할 수 없고, struct 타입의 변수에는 '>'과 같은 연산자를 사용할 수 없기 때문이다.
+
+```c++
+template<typename T> void Swap(T &a, T &b);
+template<> void Swap<job>(job &a, job &b); // explicit specialization
+template<> void Swap(job &a, job &b); // <job> after “Swap” can be omitted
+```
+위와 같은 코드에서 일반적인 타입에 대한 함수와, 특정한 타입(job struct)에 대해 동작하는 함수를 overload한 것이다.
+swap 뒤의 <job>은 생략될 수 있는데, argument list에서 job 타입이라는 것이 명시되기 때문이다.
 
 
 
