@@ -7,6 +7,7 @@ tags: oodp
 
 > POSTECH OODP Lecture at 24SS
 
+# Memory Model
 ## Separate Compilation
 
 C++은 실행시키기 위해 compiler와 linker 두 단계를 거친다.
@@ -54,7 +55,47 @@ Static variable을 **static** 키워드를 붙여 정의한다.
 그러나 함수 앞에 **static** 키워드를 붙이면, 해당 파일에서만 동작한다.
 
 
+# Namespace
+지금까지는 표준 라이브러리만 사용해왔지만, 큰 프로젝트를 다루려면 다양한 라이브러리를 다뤄야 한다.
+그 중에서는 분명 동일한 함수명을 가진 라이브러리들도 있을 것이다.
+Name collision은 compile error를 유발하는 큰 문제다.
+이러한 상황에서 namespace는 identifier의 범위를 정의해준다.
 
+``` c++
+// image.h
+namespace Image {
+    ...
+    image* load(const char* filename);
+    ...
+}
+// audio.h
+namespace Audio {
+    ...
+    audio* load(const char* filename);
+    ...
+}
+// main.cpp
+#include <image.h>
+#include <audio.h>
+int main()
+{
+    Image::image* img = Image::load("image.jpg");
+}
+```
+
+Namespace를 정의하기 위해서는 **namespace**를 키워드로 block을 만들어준다.
+
+어떤 namespace를 사용할 것인지 명시하는 방법은 여러가지가 있다.
+1) Scope resolution operator: 사용할 identifier의 namespace를 명시하기 위해서는 **::**를 키워드로 한다.
+2) directive: 특정 block의 모든 identifier에 적용하기 위해서는 **using namespace ___** directive를 사용한다.
+3) declaration: 특정 identifier의 namespace를 명시하려면 **using {namespace}::{identifier}**을 사용한다.
+``` c++
+using Audio::audio;
+using Image::image;
+audio *aud;
+image *img;
+aud = Audo::load("...");
+```
 
 ## Questions?
 **Q1.** '#ifndef #define #endif'가 #progma once과 동일한가?  <br>
