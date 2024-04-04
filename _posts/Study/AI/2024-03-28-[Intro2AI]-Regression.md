@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[DL] 1. Regression"
+title: "[AI] 1. Regression"
 category: study
 tags: ai
 ---
