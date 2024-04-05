@@ -50,4 +50,4 @@ Regression의 목적은 결국 주어진 입력에 올바른 예측을 내놓는
 
 
 <!-- Links -->
-[regression.ipynb]: 
+[regression.ipynb]: https://github.com/baejaeho18/code/blob/main/0-Education/intro2AI/ch4-regression/Regression.ipynb
