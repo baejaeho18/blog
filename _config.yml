@@ -39,7 +39,7 @@ keywords:              ["Development", "AI", "Jekyll"]
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo:                  /assets/img/me/me0.png
+logo:                  /assets/img/legacy/logo.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
@@ -90,7 +90,7 @@ excerpt_separator:     <!--more-->
 
 # Sidebar image and theme color of the site.
 accent_image:
-  background:          center / cover url(/assets/img/music-cat-no-loop.gif)
+  background:          center / cover url(/assets/img/legacy/music-cat-no-loop.gif)
   overlay:             false
 accent_color:          rgb(0,174,239)
 
@@ -332,7 +332,7 @@ hydejack:
     enabled:           false
     cache_version:     13
     precache_assets:
-      - /assets/img/swipe.svg
+      - /assets/img/legacy/swipe.svg
 
 
 # Collections
