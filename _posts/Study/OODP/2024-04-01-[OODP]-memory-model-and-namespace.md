@@ -18,7 +18,7 @@ C++은 실행시키기 위해 compiler와 linker 두 단계를 거친다.
 - func.h : 함수들이 선언되는 곳이다. 여러 파일에서 사용되는 function prototypes과 inline functions, structure declarations, class declarations, template declarations 그리고 symbolic constants가 존재한다.
 이러한 정보들은 컴파일러에게 어떻게 함수를 다루고, 변수를 생성할지 알려줄 뿐, 실제로 생성하지는 않는다.
 - func.cpp : 함수들이 정의되는 곳이다. func.h에서 선언된 함수들을 실제로 구현한다.
-
+<!--more-->
 ## Storage Duration, Scope, and Linkage
 
 C++ uses three seperate schemes for storing data

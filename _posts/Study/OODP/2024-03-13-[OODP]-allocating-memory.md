@@ -84,7 +84,7 @@ String Class는 구 char array보다 기능적으로 상위호환이다.
 
 ## Questions?
 **Q1.** new와 malloc의 어떤 차이가 있을까? <br>
-**A1.** 둘 모두 heap 영역에 memory를 잡아주는 동적할당하는데 쓰인다.new는 생성자를 자동으로 호출한다. 즉, 객체를 자동으로 초기화해준다. 다만 malloc은 realloc 같은 함수로 간편하게 재할당 할 수 있는 것에 반해, new는 반드시 삭제 후 재할당해야 한다.
+**A1.** 둘 모두 heap 영역에 memory를 잡아주는 동적할당하는데 쓰인다. new는 생성자를 자동으로 호출한다. 즉, 객체를 자동으로 초기화해준다. 다만 malloc은 realloc 같은 함수로 간편하게 재할당 할 수 있는 것에 반해, new는 반드시 삭제 후 재할당해야 한다.
 
 **Q2.** argument list 같은 것들은 stack에 할당되나요, heap에 할당되나요? <br>
 **A2.**
