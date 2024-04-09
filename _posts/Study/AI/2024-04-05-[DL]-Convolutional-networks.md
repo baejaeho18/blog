@@ -46,18 +46,49 @@ Infinitely Strong Prior(무한히 강한 사전확률분포)란 일부 매개변
 합성곱 신경망과 pooling은 고정된 kernel과만 상호작용하기 때문에 무한히 강한 사전분포라고 볼 수 있다. 
 
 ## 9.5 Variants of the Basic Convolution Function
+지금까지 표준적인 이산합성곱 연산을 수학적 관점으로 알아보았다.
+그러나 딥러닝에서 실제로 쓰이는 합성곱 함수는 수식이 다소 다르다.
+먼저, 각 계층에서 각기 다른 feature를 추출하는 여러 합성곱이 병렬로 연산된다.
+둘째로, 계산 비용을 줄이기 위해 정해진 stride만큼 뛰어넘으면서 출력하는 하향표본화(downsampling)가 있다.
+
 ## 9.6 Structured Outputs
+합성곱의 결과로 특정 값 하나가 아닌 tensor로 출력할 수 있다. 다차원 구조적 객체인 tensor는 
+
 ## 9.7 Data Types
+입력과 출력의 크기를 가변적으로 할 수 있다는 것도 합성곱 신경망의 장점이다.
+예를 들어, width와 height가 다른 여러 이미지들이 있을 때, 동일한 kernel을 사용해도 합성곱 알고리즘을 실행하는데 전혀 문제가 없다.
+다만 고정된 크기의 출력을 산출하고 싶다면, pooling이나 stride를 조정해야하긴 할 것이다.
+다만, 위의 예시처럼 입력의 크기가 달라도 처리할 수 있는 것은 관측값의 종류는 동일할 때만 가능하다.
+
 ## 9.8 Efficient Convolution Algorithms
+합성곱 연산을 그대로 하는 것보다, 퓨리에-역퓨리에 변환으로 계산하는 것이 훨씬 빠르다.
+
 ## 9.9 Random or Unsupervised Features
+CNN에서 계산 비용이 가장 많이 드는 부분은 합성곱이 아닌, 도출된 feature의 학습이다.
+지도 학습을 위해 경사하강법을 수행하려면, 신경망 전체에 대한 순전파와 역전파가 이뤄져야 하기 때문이다.
+따라서 지도 학습을 하지 않고 합성곱 kernel을 수정하는 전략이 연구되었다.
+일반적으로는 연구자가 직접 kernel을 수정하고 했다.
+놀랍게도 무작위로 kernel을 초기화할 때도 잘 동작하곤 한다.
+또, 신경망 전체가 아닌 각 층마다 greedy 방식으로 훈련하는 방법도 있다. 
+그러나 이러한 방식은 데이터가 적고 계산 능력이 낮던 과거에 필요했던 전략으로, 현재는 대부분 완전한 지도학습을 통해 학습한다.
+
 ## 9.10 The Neuroscientific Basis for Convolutional Networks
+CNN 역시 뇌과학에서 대단히 많은 영감을 받았다.
+시각이 받아들이는 정보를 1차 시각피질에서 처리하는데, 이는 단순세포와 복합세포로 이루어져 있다. 각각 activation과 pooling에 영향을 주었다.
+또한, equivariant representations 개념 역시 '할머니 세포'에서 영향을 받았다.
+그러나 우리 뇌가 이미지를 받아들이는 방식보다 한참 낮은 수준에서 CNN은 동작한다. 아직도 발전할 여지가 많다.
+
 ## 9.11 Convolutional Networks and the History of Deep Learning
+그럼에도 CNN은 딥러닝 영역에서 가장 대표적인 모형이다.
+실제로 딥러닝을 수행할 수 있기 전에도 역전파로 학습을 성공한 최초의 딥러닝 모델이다. grid-like topology의 데이터들에 적합하고, 입력이나 출력의 가변크기를 보장한다는 장점이 있다. 이는 2차원 이미지에 특히 유용하다.
+1차원 자료들에 유용한 순환신경망은 어떻게 구성되어 있는지 다음 챕터에서 살펴보겠다.
+
 
 ## Questions
-**Q1.**   <br>
+**Q1.** I don't understand why random filters work so well in 9.9. Is there a hypothesis that explains this?  <br>
 **A1.** 
 
-**Q2.**  <br> 
+**Q2.** While the attention strategy mentioned in 9.10 was successfully accepted in natural language processing, why did it not work well in visual models? <br> 
 **A2.** 
 
 **Q3.**   <br>
