@@ -128,7 +128,7 @@ double y = x;       // invalid
 double y = double(x);   // yes
 double y = (double)x;   // yes
 double y = x.operator double(); // ?
-
+```
 
 ## Questions?
 **Q1.** nonmember function이 뭔가요? <br>
