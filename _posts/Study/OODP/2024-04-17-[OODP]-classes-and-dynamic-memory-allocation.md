@@ -54,9 +54,24 @@ String::String(const String &st) // copy constructor
 ```
 위와 같이 copy constructor을 수정하여 deep copy를 수행해야 한다.
 
-### Assignment Operators
-반드시 member function 으로 overloading해야 한다.
 
+### Assignment Operators
+Copy Constructor와 마찬가지로, default로 shallow copy를 지원하기 때문에 별도로 구현해줄 필요가 있다.
+
+```c++
+String &operator=(const String &st);
+
+String &String::operator=(const String &st)
+{
+    if(this == &st) // object assigned to itself
+        return *this;
+    delete[] str;
+    len = st.len;
+    str = new char[len + 1];
+    std::strcpy(str, st.str);
+    return *this;
+}
+```
 
 
 ## Questions?
