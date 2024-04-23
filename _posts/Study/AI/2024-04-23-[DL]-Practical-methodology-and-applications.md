@@ -86,17 +86,35 @@ CNN은 가변 크기의 이미지를 입력 받아, pooling 크기를 조절하�
 dataset argumentation 역시 훈련 데이터에만 적용 가능한 전처리의 일종으로 보아도 좋다.
 
 ## 12.3 Speech Recognition
-
+ASR(자동 음성 인식)은 자연어 발화(utterance)의 음향 신호를, 단어 순차열로 사상한다.
+본래 음향 특징들과 음소들의 연관 관계를 모델화한 GMM(가우스 혼합 모델)과 음소들의 순차열을 모델화한 HMM(은닉 마르코프 모델)의 조합이 오랫동안 쓰여왔다. 그러나 GMM의 역할을 비지도 사전 훈련 기법인 RMB(제한 볼츠만 기계)이 대체하며 딥러닝의 성능이 기존의 GMM-HMM 시스템을 추월하였다[Deng&Yu, 2014]. 
+현재에는 CNN이나 LSTM으로 HMM을 대체하여 딥러닝만으로 end-to-end ASR 시스템을 구축하는 것을 목표로 하고 있다[Graves, 2013].
 
 ## 12.4 Natural Language Processing
+대표적인 NLP 과제는 기계 번역이다. 일반적으로, NLP모델은 단어들의 순차열을 입력으로 받는 것이 유용하다. 그러나 가능한 단어들의 개수가 크기 때문에, 단어 기반 언어 모델은 반드시 차원수가 극도로 많은 희소 이산 공간에서 동작한다. 이러한 공간을 비용 및 통계적 과점에서 효율적으로 작동하게하는 전략이 NLP의 핵심이다.
+
+### 12.4.1 n-grams
+자연어의 sequence of token들에 대해 하나의 확률분포를 정의한다. 항상 이산적인 개체인 토큰은 단어, 문자 혹은 바이트일 수 있다. n-gram은 고정 길이 n개의 토큰들로 이루어진 하나의 순차열을 일컫는다.
+
+### 12.4.2 Neural Language Model
+NLM은 주로 RNN이나 embedding을 사용하여 문장이나 문서이 다음 단어를 예측/생성하는 모델이다. 문장의 문맥을 고려하여 단어의 확률 분포를 학습하여, 이전 단어들에 따라 다음 단어를 예츨하는 데 뛰어나다.
+
+### 12.4.3 High-dimensional Output
+
+### 12.4.4 n-gram and NLM
+NLM의 문맥파악능력과 n-gram의 통계적 접근 방식을 결합한 일정의 ensemble 전략이다.
+
+### 12.4.5 Machine Translation
+
 ## 12.5 Other Applications
+추천 서비스와 질의응답 서비스가 주된 응용분야로 떠오르고 있다.
 
 ## Questions
 **Q1.** 11.2에서 "Batch normalization also sometimes reduces generalization error and allows dropout to be omitted, due to the noise in the estimate of the statistics used to normalize each variable."가 어떻게 그런 것인지 잘 이해가 안갑니다. 둘 다 과적합을 방지해서 일반화 오차를 줄이기 때문에 배치정규화를 사용하면 dropout을 생략해도 된다는 말일까요? <br>
-**A1.** 
+**A1.** Yes. Batch normalization은 정규화 효과 외에도 noise 효과도 가지고 있다. 따라서 noise 주입을 목적으로 하는 dropout 정규화 전략을 사용할 필요 없다. 다만, 이후 transformer에서는 layer normalization을 쓰는데, 이것은 noise 효과가 없기 떄문에 다시 dropout을 쓰기도 한다.
 
-**Q2.**  <br> 
-**A2.** 
+**Q2.** 딥러닝이 아닌 머신러닝도 gpu가 필수적인가요?  <br> 
+**A2.** No. 대부분의 머신러닝 연산은 통계분포와 행렬연산을 필수적으로 쓰는 딥러닝에 비해 비교적 간단한 모델이기 때문에 cpu만으로도 충분하다. 물론 gpu를 쓰면 빠르지만, 필수까지는 아니다.
 
 **Q3.**   <br>
 **A3.**
@@ -108,3 +126,5 @@ dataset argumentation 역시 훈련 데이터에만 적용 가능한 전처리�
 [Deep Learning]: https://github.com/baejaeho18/MyLibrary/blob/main/Machine%20Learning/deeplearningbook.pdf
 [effective capacity]: https://munjeongkang.github.io/ANN2/
 [LeCun, 1998a]: http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf
+[Deng&Yu, 2014]: https://nowpublishers.com/article/Details/SIG-039
+[Graves, 2013]: https://arxiv.org/pdf/1308.0850.pdf
