@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[OODP] 10. Class Inheritance(2)"
+title: "[OODP] 10. Class Inheritance"
 category: study
 tags: oodp
 ---
@@ -81,31 +81,37 @@ cout << pt->getName() << ", " << pt->getId() << endl;
 Student &ref = st2;
 cout << ref.getName() << ", " << ref.getId() << endl;
 ```
+
 그러나 base-class pointer or reference로 derived-class method를 호출하는 것은 불가능하다.
+
 ```c++
 cout << pt->getLab() << endl; // NOT ALLOWED
 cout << ref.getLab() << endl; // NOT ALLOWED
 ```
+
 반대로, explicit typecast 없이 derived-class pointer나 reference로 base-class 객체를 활용하는 **downcasting**은 허용되지 않는다.
+
 ```c++
 Student st1("Irene", 20011110);
 GraduateStudent *pp = &st1; // NOT ALLOWED
 GraduateStudent &rr = st1; // NOT ALLOWED
 ```
 
-이렇게 Public inheritance가 가능한 관계를 **is-a** relationship이라고 부른다(GraduateStudent is a Student).
+이렇게 Public inheritance가 가능한 관계를 **is-a** relationship이라고 부른다("GraduateStudent is a Student").
 derived class의 객체는 base class의 객체이기도 하기 때문이다.
 
 ## Polymorphic Public Inheritance
 
-base-class에 새로운 속성을 추가했을 뿐인 **is-a**와 달리, base class에서 다소 변경을 주는 **has-a** relationship가 존재한다(Lunch has a Fruit).
+base-class에 새로운 속성을 추가했을 뿐인 **is-a**와 달리, base class에서 다소 변경을 주는 **has-a** relationship가 존재한다("Lunch has a Fruit").
+
 ```c++
 Student st1("Irene", 20011110);
 GraduateStudent st2("Yeri", 20052465, "Computer Graphics Lab");
 st1.display(); // displays name & id
 st2.display(); // displays name, id & lab
 ```
-다형성 상속의 핵심은 **virtual** method 혹은 function의 **overloading**이다.
+
+이러한 다형성 상속의 핵심은 **virtual** method의 **overloading**과 **overriding**이다.
 
 ### Name Hiding in Inheritance
 
@@ -118,7 +124,9 @@ st2.reset("Hojin", 20031212, "SE Lab"); // OK
 st2.reset("Chulhoon", 20052323); // error!
 st2.Student::reset("Chulhoon", 20052323); // OK
 ```
+
 위와 같이 동일한 이름을 가진 inherited member는 local member에 의해 가려질 수 있다. 이를 해결하기 위해서는 다음과 같이 수정할 수 있다.
+
 ```c++
 void GraduateStudent::reset(const string &name_, int id_, const string &lab_ = “”)
 void GraduateStudent::reset(const string &name_, int id_) { Student::reset(name_, id_); }
@@ -126,6 +134,7 @@ void GraduateStudent::reset(const string &name_, int id_) { Student::reset(name_
 
 ### virtual Keyword
 virtual 예약어가 붙은 method는 컴파일러에게 override될 것을 알린다.
+
 ```c++
 Student *ptr[2];
 ptr[0] = new Student("Irene", 2001110);
@@ -134,6 +143,7 @@ ptr[1] = new GraduateStudent("Yeri", 20052465, "Computer Graphics Lab");
 for(int i = 0; i < 2; i++)
     ptr[i]->display();
 ```
+
 위의 코드에서 **virtual**로 display()를 선언하지 않았다면, ptr[1]은 Student 객체만을 가리킬 수 있기 때문에 GraduateStudent::display가 아니라 Student::display()를 호출하게 된다.
 그러나 **virtual** method로 선언을 한다면, Student 타입의 포인터가 GraduateStudent 타입의 객체의 method를 호출할 수 있다.
 
@@ -149,6 +159,7 @@ for(int i = 0; i < 2; i++)
 각 객체마다 vptr라는 hidden member가 생성된다. vptr은 vtable을 가리키는데, vtable은 virtual function들의 주소를 저장하는 배열이다.
 ![vtable](/assets/img/2024-04-22/vtable.png)
 아래 코드 예시에서 위와 같이 vtable이 생성된다.
+
 ```c++
 class Scientist {
     // ...
@@ -166,6 +177,7 @@ class Physicist : public Scientist {
     virtual void show_field(); // new
     // ...
 };
+
 Scientist sophie("Sophie");
 Physicist adam("Adam", "nuclear");
 Scientist *psc = &adam;
@@ -181,7 +193,7 @@ psc->show_all();
 
 ## Questions?
 **Q1.** "void display() const;" 이 구문에서 const는 어떤 역할을 하나요?    <br>
-**A1.** 
+**A1.** 주어진 메소드에서 어떠한 member data 변경도 없을 것을 알려준다. read-only 라는 뜻이다.
 
 **Q2.** virtual이 실행속도도 낮고, 복잡하게 만드는 원인 같은데 꼭 써야하는 이유가 있나요?     <br>
 **A2.** 코드 가독성(?) 때문이다. virtual이라는 키워드는 곧 derived class에서 재정의될 수 있다는 것을 의미한다. 반대로 virtual이 없다면, derived에서 재정의하지 않을 것이라는 의미를 암묵적으로 가진다. 개발자가 이해하기 쉽도록 만들어졌다.
