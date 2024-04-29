@@ -5,199 +5,124 @@ category: study
 tags: oodp
 ---
 
-> POSTECH OODP Lecture at 24SS
+# Reusing techniques
+## Classes with Member Object (containment)
+다른 class의 객체들을 class member로 사용할 수 있다.
+이를 **containment**, **composition** 혹은 **layering**이라고 부른다.
+예를 들어 Student class에서는 string 객체(name)와 valarray 객체(scores) 등을 사용한다.
 
-# Class Inheritance
+### valarray template class
+> Header file: #include \<valarray\>
 
-Class 상속은 높은 코드 재사용성을 제공한다.
-상속하도록 설계된 base class와 상속 받는 derived class로 구성된다.
-<!--more-->
-간단한 base class의 예시는 다음과 같다.
+numeric값들의 배열을 다르는 template class이다.
+합산, 최댓값, 최솟값 등의 산술연산을 지원한다.
+vector나 array 클래스들과는 완전히 다르다.
 
 ```c++
-class Student
-{
+class Student {
 private:
-    string name;
-    int id;
+    typedef std::valarray<double> ArrayDb;
+    std::string name; // contained object
+    ArrayDb scores; // contained object
+    // private method for scores output
+    std::ostream& arr_out(std::ostream& os) const;
 public:
-    Student(const string &name_ = "", int id_ = 0);
-    void setName(const string &name_) { name = name_; }
-    const string& getName() const { return name; }
-    void setId(int id_) { id = id_; }
-int getId() const { return id; }
+    Student() : name("Null Student"), scores() {}
+    explicit Student(const std::string& s) : name(s), scores() {}
+    explicit Student(int n) : name ("Nully"), scores(n) {}
+    Student(const std::string& s, int n) : name(s), scores(n) {}
+    Student(const std::string& s, const ArrayDb& a) : name(s), scores(a) {}
+    Student(const char* str, const double* pd, int n) : name(str), scores(pd, n) {}
+    ~Student() {}
+    double Average() const;
+    const std::string& Name() const;
+    double& operator[](int i);
+    double operator[](int i) const;
+    // friends
+    // input
+    friend std::istream& operator>>(std::istream& is, Student& stu); // 1 word
+    friend std::istream& getline(std::istream& is, Student& stu); // 1 line
+    // output
+    friend std::ostream& operator<<(std::ostream& os, const Student& stu);
 };
-
-Student::Student(const string &name_, int id_)
-: name(name_), id(id_)
-{ }
 ```
 
-학생이라는 커다란 분류 아래, 대학원생들을 표현하는 deriving class의 간단한 예시는 다음과 같다.
+## Private and Protected Inheritance
+### Private Inheritance
+Public inheritance(is-a relationship)은 base class의 public method들을 derived class의 public method로 삼아, **interface**를 상속받는다.
+그러나 private inheritance(has-a relationship)은 base class의 public method들을 derived class의 **private** method로 삼는다. 
+이는 containment와 유사한 면이 있다.
+![private-inheritance](/assets/img/2024-04-29/private-inheritance.png)
 
 ```c++
-class GraduateStudent : public Student
-{
+class Student : private std::string, private std::valarray<double>{
 private:
-    // string name; int id;
-    string lab;
+    typedef std::valarray<double> ArrayDb;
+    // private method for scores output
+    std::ostream& arr_out(std::ostream& os) const;
 public:
-    GraduateStudent(const string &name_ = "", int id_ = 0, const string &lab_ = "");
-    // void setName(const string &name_) { name = name_; }
-    // const string& getName() const { return name; }
-    // void setId(int id_) { id = id_; }
-    // int getId() const { return id; }
-    void setLab(const string &lab_) { lab = lab_; }
-    const string& getLab() const { return lab; }
+    Student() : std::string("Null Student"), ArrayDb() {}
+    explicit Student(const std::string& s) : std::string(s), ArrayDb() {}
+    explicit Student(int n) : std::string("Nully"), ArrayDb(n) {}
+    Student(const std::string& s, int n) : std::string(s), ArrayDb(n) {}
+    Student(const std::string& s, const ArrayDb& a) : std::string(s), ArrayDb(a) {}
+    Student(const char* str, const double* pd, int n)
+    : std:: string(str), ArrayDb(pd, n) {}
+    ~Student() {}
+    double Average() const;
+    double& operator[](int i);
+    double operator[](int i) const;
+    const std::string& Name() const;
+    // friends
+    // input
+    friend std::istream& operator>>(std::istream& is, Student& stu);
+    friend std::istream& getline(sted::istream& is, Student& stu);
+    // output
+    friend std::ostream& operator<<(std::ostream& os, const Student& stu);
 };
-
-GraudateStudent::GraudateStudent(const string &name_, int id_, const string &lab_)
-// : name(name_), id(id_), lab(lab_)
-: Student(name_, id_), lab(lab_)
-{ }
 ```
-주석은 상속 받지 않았을 때 필요한 member들이다.
-**: public Student** 구문을 통해 Student의 public member들을 GraduateStudent 자신의 interface처럼 사용할 수 있다. 한편, Student의 private member들은 GraduateStudent가 사용할 수 있지만 GraduateStudent의 member function으로 직접 제어할 수는 없다. name과 id를 = 연산자로 할당하지 않고, initializer list로 초기화하는 이유이다.
+위 코드처럼 **private** keyword를 사용해 상속받는다. 
+본 예시처럼 여러 개의 base class로부터 상속받는 것을 **multiple inheritance**라고 부른다.
 
-![inheritance](/assets/img/2024-04-22/inheritance.png)
+일반적으로 private inheritance보다는 containment가 훨씬 잘 쓰이는 것이 맞다. 
+private inheritance가 유용한 상황은, base class의 protected member를 사용하거나 overriding하고 싶을 때이다.
 
-상속되지 않는 member들도 존재하는데, constructor&destructor와 assignment operator들이 그것이다. 이는 derived class가 base class에 비해 data member들이 추가되는 경우가 잦아, 자체적으로 정의하는 것이 자연스럽기 때문이다.
+### Protected Inheritance
+이는 private inheritance와 유사하게 has-a relationship을 지원한다.
+**protected** 키워드로 상속받는데, base class의 public과 protected member들이 derived class의 protected member가 된다. 정리하자면 다음과 같다.
 
-## Speicial Relationships Btw. Derived & Base Classes
+### Redefining Access with using
+지금까지 base class의 public member들을 private나 protected member로 상속 받는 방법을 알아보았다.
+그러나 특정한 base-class method를 derived class에서 publicly 사용하고 싶을 수 있다.
 
-* derived-class object는 base-class의 public method들을 사용할 수 있다.
+사용할 base-class method를 호출하는 wrapping method 정의하는 방법과, public section에서 using을 사용하여 재정의하는 방법이 있다.
 
 ```c++
-GraduateStudent st2("Yeri", 20052465, "Computer Graphics Lab");
-cout << st2.getName() << ", " << st2.getId() << " , ";
-```
-
-* base-class pointer와 reference는 derived-class 객체를 explicit typecast 없이 지칭할 수 있다. 이를 **upcasting**이라고 부른다.
-
-```c++
-GraduateStudent st2("Yeri", 20052465, "Computer Graphics Lab");
-Student *pt = &st2;
-cout << pt->getName() << ", " << pt->getId() << endl;
-Student &ref = st2;
-cout << ref.getName() << ", " << ref.getId() << endl;
-```
-
-그러나 base-class pointer or reference로 derived-class method를 호출하는 것은 불가능하다.
-
-```c++
-cout << pt->getLab() << endl; // NOT ALLOWED
-cout << ref.getLab() << endl; // NOT ALLOWED
-```
-
-반대로, explicit typecast 없이 derived-class pointer나 reference로 base-class 객체를 활용하는 **downcasting**은 허용되지 않는다.
-
-```c++
-Student st1("Irene", 20011110);
-GraduateStudent *pp = &st1; // NOT ALLOWED
-GraduateStudent &rr = st1; // NOT ALLOWED
-```
-
-이렇게 Public inheritance가 가능한 관계를 **is-a** relationship이라고 부른다("GraduateStudent is a Student").
-derived class의 객체는 base class의 객체이기도 하기 때문이다.
-
-## Polymorphic Public Inheritance
-
-base-class에 새로운 속성을 추가했을 뿐인 **is-a**와 달리, base class에서 다소 변경을 주는 **has-a** relationship가 존재한다("Lunch has a Fruit").
-
-```c++
-Student st1("Irene", 20011110);
-GraduateStudent st2("Yeri", 20052465, "Computer Graphics Lab");
-st1.display(); // displays name & id
-st2.display(); // displays name, id & lab
-```
-
-이러한 다형성 상속의 핵심은 **virtual** method의 **overloading**과 **overriding**이다.
-
-### Name Hiding in Inheritance
-
-```c++
-void Student::reset(const string &name_, int id_);
-void GraduateStudent::reset(const string &name_, int id_, const string &lab_);
-
-GraduateStudent st2("Yeri", 20052465, "Computer Graphics Lab");
-st2.reset("Hojin", 20031212, "SE Lab"); // OK 
-st2.reset("Chulhoon", 20052323); // error!
-st2.Student::reset("Chulhoon", 20052323); // OK
-```
-
-위와 같이 동일한 이름을 가진 inherited member는 local member에 의해 가려질 수 있다. 이를 해결하기 위해서는 다음과 같이 수정할 수 있다.
-
-```c++
-void GraduateStudent::reset(const string &name_, int id_, const string &lab_ = “”)
-void GraduateStudent::reset(const string &name_, int id_) { Student::reset(name_, id_); }
-```
-
-### virtual Keyword
-virtual 예약어가 붙은 method는 컴파일러에게 override될 것을 알린다.
-
-```c++
-Student *ptr[2];
-ptr[0] = new Student("Irene", 2001110);
-ptr[1] = new GraduateStudent("Yeri", 20052465, "Computer Graphics Lab");
-
-for(int i = 0; i < 2; i++)
-    ptr[i]->display();
-```
-
-위의 코드에서 **virtual**로 display()를 선언하지 않았다면, ptr[1]은 Student 객체만을 가리킬 수 있기 때문에 GraduateStudent::display가 아니라 Student::display()를 호출하게 된다.
-그러나 **virtual** method로 선언을 한다면, Student 타입의 포인터가 GraduateStudent 타입의 객체의 method를 호출할 수 있다.
-
-결론적으로, Polymorphism을 통해 base class의 포인터가 다양한 타입의 객체를 가리킬 수 있고, 각 객체들은 실제 타입에 따라 다르게 동작할 수 있다.
-
-### Function Binding
-* overloading된 함수들 중 무엇을 호출해야하는지 결정하는 작업이다.
-    - Static binding : 일반적인 함수들을 대상으로 컴파일타임에 수행된다.
-    - Dynamic binding : virtual function들에 대하여 런타임에 수행된다. 자연히, 실행속도도 느려진다.
-
-* 그렇다면 어떻게 compiler가 virtual function들을 관리할 수 있을까?
-
-각 객체마다 vptr라는 hidden member가 생성된다. vptr은 vtable을 가리키는데, vtable은 virtual function들의 주소를 저장하는 배열이다.
-![vtable](/assets/img/2024-04-22/vtable.png)
-아래 코드 예시에서 위와 같이 vtable이 생성된다.
-
-```c++
-class Scientist {
+double Student::sum() const // public Student wrapping method
+{
+    // use privately-inherited method
+    return std::valarray<double>::sum(); 
+}
+class Student : private std::string, private std::valarray<double>
+{
     // ...
-    char name[40];
-    public:
-    virtual void show_name();
-    virtual void show_all();
+public:
+    using std::valarray<double>::sum;
     // ...
 };
-class Physicist : public Scientist {
-    // ...
-    char field[40];
-    public:
-    void show_all(); // redefined
-    virtual void show_field(); // new
-    // ...
-};
-
-Scientist sophie("Sophie");
-Physicist adam("Adam", "nuclear");
-Scientist *psc = &adam;
-psc->show_all();
 ```
 
-### Things to know about virtual method
+## Multiple Inheritance
 
-1. constructor는 virtual로 선언될 필요가 없다.
-1. class에 virtual method가 있다면 virtual destructor를 정의해라.
-2. 상속에서 pointer나 reference를 쓴다면 virtual destructor를 정의하라.
+
+## virtual base classes
 
 
 ## Questions?
-**Q1.** "void display() const;" 이 구문에서 const는 어떤 역할을 하나요?    <br>
-**A1.** 주어진 메소드에서 어떠한 member data 변경도 없을 것을 알려준다. read-only 라는 뜻이다.
+**Q1.**    <br>
+**A1.** 
 
-**Q2.** virtual이 실행속도도 낮고, 복잡하게 만드는 원인 같은데 꼭 써야하는 이유가 있나요?     <br>
-**A2.** 코드 가독성(?) 때문이다. virtual이라는 키워드는 곧 derived class에서 재정의될 수 있다는 것을 의미한다. 반대로 virtual이 없다면, derived에서 재정의하지 않을 것이라는 의미를 암묵적으로 가진다. 개발자가 이해하기 쉽도록 만들어졌다.
-
+**Q2.**      <br>
+**A2.** 
 
 <!-- Links -->
-[students]: 
