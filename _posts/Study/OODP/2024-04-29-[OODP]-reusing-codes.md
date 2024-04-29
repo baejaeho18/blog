@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[OODP] 10. Class Inheritance"
+title: "[OODP] 11. Reusing Code in C++"
 category: study
 tags: oodp
 ---
@@ -128,7 +128,7 @@ st2.Student::reset("Chulhoon", 20052323); // OK
 위와 같이 동일한 이름을 가진 inherited member는 local member에 의해 가려질 수 있다. 이를 해결하기 위해서는 다음과 같이 수정할 수 있다.
 
 ```c++
-void GraduateStudent::reset(const string &name_, int id_, const string &lab_=“”)
+void GraduateStudent::reset(const string &name_, int id_, const string &lab_ = “”)
 void GraduateStudent::reset(const string &name_, int id_) { Student::reset(name_, id_); }
 ```
 
@@ -190,39 +190,6 @@ psc->show_all();
 1. class에 virtual method가 있다면 virtual destructor를 정의해라.
 2. 상속에서 pointer나 reference를 쓴다면 virtual destructor를 정의하라.
 
-## Access Control
-public과 private과 같은 접근제어자에는 **protected**도 포함되어 있다.
-protected member의 경우에는 class 외부에서는 접근할 수 없지만, derived class에서는 접근할 수 있다.
-
-## Abstract Base Classes
-Pure virtual functions를 가진 base class를 일컫는다.
-Abstract base class로는 객체를 만들 수 없다. 오직 base class로써만 기능한다.
-
-```c++
-class Shape { // abstract base class
-    // ...
-    virtual double Area() const = 0; // a pure virtual function
-};
-class Circle : public Shape
-{
-    // ...
-    double Area() const { return 3.141592 * radius * radius; }
-};
-class Rectangle : public Shape
-{
-    // ...
-    double Area() const { return width * height; }
-};
-```
-
-Pure virtual function은 정의되지 않은 함수이다.
-따라서 반드시 derived class에서 재정의되어야 한다.
-base class에서는 "=0"으로 확인할 수 있다.
-
-```c++
-
-
-```
 
 ## Questions?
 **Q1.** "void display() const;" 이 구문에서 const는 어떤 역할을 하나요?    <br>
@@ -231,8 +198,6 @@ base class에서는 "=0"으로 확인할 수 있다.
 **Q2.** virtual이 실행속도도 낮고, 복잡하게 만드는 원인 같은데 꼭 써야하는 이유가 있나요?     <br>
 **A2.** 코드 가독성(?) 때문이다. virtual이라는 키워드는 곧 derived class에서 재정의될 수 있다는 것을 의미한다. 반대로 virtual이 없다면, derived에서 재정의하지 않을 것이라는 의미를 암묵적으로 가진다. 개발자가 이해하기 쉽도록 만들어졌다.
 
-**Q3.** 만약 base class에서 선언한 member data를 derived class에서 재정의하고 싶다면 어떻게 해야하나요? 예를 들어, name[5]를 name[40]으로 바꾸려면 어떻게 해야할까요?
-**A3.** 
 
 <!-- Links -->
 [students]: 
