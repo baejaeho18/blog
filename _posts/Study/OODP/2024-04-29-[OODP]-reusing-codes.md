@@ -5,18 +5,12 @@ category: study
 tags: oodp
 ---
 
-# Reusing techniques
+# Reusing Code (has-a)
 ## Classes with Member Object (containment)
 다른 class의 객체들을 class member로 사용할 수 있다.
 이를 **containment**, **composition** 혹은 **layering**이라고 부른다.
 예를 들어 Student class에서는 string 객체(name)와 valarray 객체(scores) 등을 사용한다.
-
-### valarray template class
-> Header file: #include \<valarray\>
-
-numeric값들의 배열을 다르는 template class이다.
-합산, 최댓값, 최솟값 등의 산술연산을 지원한다.
-vector나 array 클래스들과는 완전히 다르다.
+<!--more-->
 
 ```c++
 class Student {
@@ -29,7 +23,7 @@ private:
 public:
     Student() : name("Null Student"), scores() {}
     explicit Student(const std::string& s) : name(s), scores() {}
-    explicit Student(int n) : name ("Nully"), scores(n) {}
+    explicit Student(int n) : name ("Nully"), scores(n) {} 
     Student(const std::string& s, int n) : name(s), scores(n) {}
     Student(const std::string& s, const ArrayDb& a) : name(s), scores(a) {}
     Student(const char* str, const double* pd, int n) : name(str), scores(pd, n) {}
@@ -47,10 +41,14 @@ public:
 };
 ```
 
+* valarray template class : <valarray>를 include하여 사용할 수 있는 numeric값들의 배열을 다르는 template class이다.
+합산, 최댓값, 최솟값 등의 산술연산을 지원한다.
+
+
 ## Private and Protected Inheritance
 ### Private Inheritance
 Public inheritance(is-a relationship)은 base class의 public method들을 derived class의 public method로 삼아, **interface**를 상속받는다.
-그러나 private inheritance(has-a relationship)은 base class의 public method들을 derived class의 **private** method로 삼는다. 
+반면, private inheritance(has-a relationship)은 base class의 public method들을 derived class의 **private** method로 삼는다. 
 이는 containment와 유사한 면이 있다.
 ![private-inheritance](/assets/img/2024-04-29/private-inheritance.png)
 
@@ -85,7 +83,8 @@ public:
 본 예시처럼 여러 개의 base class로부터 상속받는 것을 **multiple inheritance**라고 부른다.
 
 일반적으로 private inheritance보다는 containment가 훨씬 잘 쓰이는 것이 맞다. 
-private inheritance가 유용한 상황은, base class의 protected member를 사용하거나 overriding하고 싶을 때이다.
+contained object들을 이름 붙여 명시하면 이해하기도 쉽고 관리하기도 편하다.
+private inheritance가 유용한 상황은, base class의 protected member를 사용하거나 virtual 함수들을 재정의(overriding)하고 싶을 경우이다.
 
 ### Protected Inheritance
 이는 private inheritance와 유사하게 has-a relationship을 지원한다.
@@ -103,11 +102,12 @@ double Student::sum() const // public Student wrapping method
     // use privately-inherited method
     return std::valarray<double>::sum(); 
 }
+
 class Student : private std::string, private std::valarray<double>
 {
     // ...
 public:
-    using std::valarray<double>::sum;
+    using std::valarray<double>::sum;   // re-define
     // ...
 };
 ```
@@ -126,3 +126,4 @@ public:
 **A2.** 
 
 <!-- Links -->
+[students]:
