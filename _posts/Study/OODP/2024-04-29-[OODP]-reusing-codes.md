@@ -113,9 +113,62 @@ public:
 ```
 
 ## Multiple Inheritance
+하나 이상의 base class를 상속 받는 관계를 말한다.
+Public으로 받는다면 is-a, 그렇지 않다면 has-a 관계로 상속된다.
+```c++
+class SingingWaiter : public Waiter, Singer { ... };
+// Singer is a private base class
+```
 
+다중 상속은 주의 깊게 사용되어야한다.
+base class들에 동명의 함수들이 있을 수도 있고, 보다 상위에 어떤 base class가 있는지 모른다.
+예를 들어, 다음 코드를 보자.
+```c++
+class Worker
+{
+private:    
+    std::string fullname;
+    long id; 
+// ...
+};
+class Waiter : public Worker { ... };
+class Singer : public Worker { ... };
+class SingingWaiter : public Singer, public Waiter { ... };
+
+SingingWaiter ed;
+Worker* pw = &ed; // ambiguous
+Worker* pw = (Waiter *)&ed; // the Worker in Waiter
+Worker* pw = (Singer *)&ed; // the Worker in Singer
+```
+위 코드에서 SingingWaiter는 Singer와 Waiter를 상속받는다. 그리고 이 둘은 Worker이기도 한다.
+따라서 ed는 두 Worker 객체를 가진다.
+어떤 객체를 사용할 것인지 typecast를 해줘야 한다.
+
+이러한 불상사를 막기 위해 virtual base class를 사용한다.
 
 ## virtual base classes
+동일한 base class를 공유하는 둘 이상의 class가 상속될 때, 공통된 객체 하나만 내려보내는 방식이다.
+```c++
+class Singer : virtual public Worker { ... };
+class Waiter : public virtual Worker { ... };
+class SingingWaiter : public Singer, public Waiter { ... };
+
+SingingWaiter ed;
+Worker* pw = &ed; // no longer ambiguous
+```
+이제 SingingWaiter는 하나의 Worker 객체만을 가진다. Singer과 Waiter객체가 공통된 Worker 객체를 공유하기 떄문이다.
+
+그러나 virtual base class가 만능의 해답은 아니다. 떄로는 여러 base 객체를 각자 가져야하는 경우도 있고, 때로는 virtual 때문에 오히려 문제가 생기는 경우도 있다.
+
+### New Constructor Rules
+그러한 문제 중 하나가 기존 constructor rule을 사용하면 오류가 난다는 것이다. 그래서 C++은 new constructor rules를 제공한다.
+```c++
+SingingWaiter(const Worker& wk, int p = 0, int v = Singer::other)
+: Waiter(wk, p), Singer(wk, v) {} // flawed
+
+SingingWaiter(const Worker& wk, int p = 0, int v = Singer::other)
+: Worker(wk), Waiter(wk, p), Singer(wk, v) {}
+```
 
 
 ## Questions?
