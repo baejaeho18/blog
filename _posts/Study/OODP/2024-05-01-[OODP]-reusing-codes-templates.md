@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[OODP] 11. Reusing Code in C++"
+title: "[OODP] 11. Reusing Code in C++(2)"
 category: study
 tags: oodp
 ---

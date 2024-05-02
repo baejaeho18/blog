@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[ByCoBERT] 1. Advance Plan"
+title: "[ByCoBERT] 0. Advance Plan Overview"
 category: project
 tags: bycobert
 ---
