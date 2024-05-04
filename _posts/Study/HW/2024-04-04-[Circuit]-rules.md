@@ -63,20 +63,43 @@ V-I 관계가 근사적으로 선형인 경우, 옴의 법칙은 유효하다.
 ### Single Loop
 단일 loop에서 여러 전류원(current source)를 붙이는 것은 불가능하다. 그러나 여러 전압원(voltage source)를 붙이는 것은 얼마든지 가능하다. KVL을 사용하면 각 소자의 전압을 알 수 있다.
 마찬가지로 여러 resistor들을 붙이는 것도 가능하다. resistor이 직렬로 연결되어 있다면 $$R_sum = R1 + R2 + ... + Rn$$과 같다.
-### Single Node-pair
 
-## Resistor Combination
+### Resistor Combination
 저항들이 직렬(series) 혹은 병렬(parallel)로 연결되어 있을 때, 복잡한 회로를 간단하게 해석하는 방법을 배운다.
-### Series
-두 개의 Resistor가 연결되어 있을 때, 각 저항에 걸리는 전압은 다음과 같다.
+
+* Series
+
+두 개의 Resistor가 연결되어 있을 때, 두 저항의 합은 다음과 같다.
+$$R_sum = R1 + R2$$
+이때, 각 저항에 걸리는 전압은 다음과 같다.
 $$V_r2 = V * \frac{R2}{R1+R2}$$, $$V_r1 = V * \frac{R1}{R1+R2}$$
+전류는 동일하다.
 
-### Parallel
+* Parallel
 
-## Wye-Delta Transformation
+두 개의 Resistor가 연결되어 있을 때, 두 저항의 합은 다음과 같다.
+$$R_sum = \frac{R1*R2}{R1+R2}$$
+이때, 각 저항에 흐르는 전류는 다음과 같다.
+$$I_r2 = \frac{R1}{R1+R2} * i$$, $$I_r1 = \frac{R2}{R1+R2} * i$$
+전압은 동일하다.
+
+### Wye-Delta Transformation
 직렬도 병렬도 아닌 저항의 조합을 간단히 하는 방법을 배운다.
+delta 형태의 회로를 Y 형태로 변환하면 회로 계산이 매우 간단해진다.
+* delta to Y : 분자를 이웃한 두 소자를 곱으로 한다.
+
+$$R_a = \frac{R1*R2}{R1+R2+R3}$$, 
+$$R_b = \frac{R2*R3}{R1+R2+R3}$$,
+$$R_c = \frac{R1*R3}{R1+R2+R3}$$
+
+* Y to delta : 반대 방향을 분모로 한다.
+
+$$R1 = \frac{R_a*R_b + R_b*R_c + R_c*R_a}{R_b}$$, 
+$$R2 = \frac{R_a*R_b + R_b*R_c + R_c*R_a}{R_c}$$, 
+$$R3 = \frac{R_a*R_b + R_b*R_c + R_c*R_a}{R_q}$$,
 
 ## Dependent Source
+
 
 ## Questions
 **Q1.** 저항은 물리량인가요, 소자인가요? <br>
