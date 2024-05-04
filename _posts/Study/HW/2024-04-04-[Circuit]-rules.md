@@ -17,18 +17,15 @@ Passive 소자란, 에너지를 생성하지 못하고 소모만 하는 소자�
 즉, 전류와 저항이 클수록, 전압이 강화된다.
 강화되는 정도에 따라 선형/비선형 저항체로 나뉜다.
 선형 저항체의 경우, 전압은 전류에 대해 비례상수 R(저항값)로 1차 비례한다. 
-
 ### Ohm's Law
 V-I 관계가 근사적으로 선형인 경우, 옴의 법칙은 유효하다.
 전압과 전류, 저항값의 관계는 **$$V=IR$$**을 따르며, 저항의 단위는 Ω(Ohm)이다.
 <!--more-->
 ### Conductance
 저항과는 반대되는 전도도(Conductance)라는 개념이 있다. 전도도(G)는 저항(R)과 반비례한다. $$G=1/R$$
-
 ### Special Resistor Values
 1) R = 0: 완전도체(short, 단락)     => V = 0
 2) G = 0: 완전부도체(open, 개방)    => i = 0
-
 ### 전력과 저항값
 > 전력계산식: P=Vi
 
@@ -52,23 +49,28 @@ V-I 관계가 근사적으로 선형인 경우, 옴의 법칙은 유효하다.
 ### KCL
 각 노드는 여러 소자(component)에 연결되어 있지만, 그 자체로는 charge를 잡고 있지 않다.
 따라서 node에 들어오는 전체 전류량과 나가는 전체 전류량은 동일하다.
-
 ### KVL
 하나의 loop에서 생성된 에너지의 합과 소모된 에너지의 합은 동일하다.
 그렇지 않다면 회로는 무한한 에너지를 소모하거나 생성하게 될 것이다.
-
 ### Independent Equations
 회로에서 N개의 node와 B개의 branch가 있을 때,
 독립된 KCL 연산식의 개수는 (N-1)개이고,
 독립된 KVL 연산식의 개수는 (B-(N-1))개이다.
 
+
 ## Analyze Circuit
+앞에서 배운 KCL과 KVL만으로도 회로를 해석할 수 있다는 것을 간단히 실습해보겠다.
 ### Single Loop
+단일 loop에서 여러 전류원(current source)를 붙이는 것은 불가능하다. 그러나 여러 전압원(voltage source)를 붙이는 것은 얼마든지 가능하다. KVL을 사용하면 각 소자의 전압을 알 수 있다.
+마찬가지로 여러 resistor들을 붙이는 것도 가능하다. resistor이 직렬로 연결되어 있다면 $$R_sum = R1 + R2 + ... + Rn$$과 같다.
 ### Single Node-pair
 
 ## Resistor Combination
 저항들이 직렬(series) 혹은 병렬(parallel)로 연결되어 있을 때, 복잡한 회로를 간단하게 해석하는 방법을 배운다.
 ### Series
+두 개의 Resistor가 연결되어 있을 때, 각 저항에 걸리는 전압은 다음과 같다.
+$$V_r2 = V * \frac{R2}{R1+R2}$$, $$V_r1 = V * \frac{R1}{R1+R2}$$
+
 ### Parallel
 
 ## Wye-Delta Transformation
