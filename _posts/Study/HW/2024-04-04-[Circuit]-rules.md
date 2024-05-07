@@ -99,7 +99,8 @@ $$R2 = \frac{R_a*R_b + R_b*R_c + R_c*R_a}{R_c}$$,
 $$R3 = \frac{R_a*R_b + R_b*R_c + R_c*R_a}{R_q}$$,
 
 ## Dependent Source
-
+전압이 전류와 비례하여 들어간다.
+$$ V = aI $$라는 간단한 연산만 추가하면 문제 없다.
 
 ## Questions
 **Q1.** 저항은 물리량인가요, 소자인가요? <br>
