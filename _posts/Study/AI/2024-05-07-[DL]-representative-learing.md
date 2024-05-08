@@ -26,15 +26,26 @@ tags: ai
 
 ## 15.2 Tranfer Learning and Domain Adaptation
 사전 훈련은 결국 비지도 학습과제의 표현을 지도 학습 과제로 전달(transfer)하는 것이다. 이를 발전 시킨 것이 전이 학습이다.
-완전히 무관하지는 않은 둘 이상의 과제들을 수행하는 것이 목표이다. 
+완전히 무관하지는 않은 둘 이상의 과제들을 수행하는 것이 목표이다.
+동일한 입력에 대해서 다른 특징들을 도출해 출력하는 것이 그 예이다.
+한편, 한 도메인에서 학습한 모델을 다른 도메인으로 전이시킬 수도 있다. 이를 모델을 새로운 환경에 적응시킨다고 하여 영역 적응(domain adaptiation)이라고 부른다.
+또한, 학습한 데이터의 특징들이 시간이 지나면서 변할 수 있다. 시간에 따라 변화한 데이터셋으로 새로운 모델을 처음부터 만드는 것이 아니라, 기존의 모델을 상황에 맞게 조정하는 전이 학습을 개념 변화(concept drift)라고 부른다.
+
+전이 학습에 사용되는 특수한 학습 알고리즘에는 one-shot learning과 zero-shot learning이 있다. one-shot learning은 데이터가 적은 갯수, 대개 하나여도 새로운 라벨로 분류하도록 학습하는 방법이다. zero-shot은 이전 분류 예시 없이도 새로운 라벨로 인식할 수 있다. 전이 학습이 새로운 도메인이나 unlabeled data를 다루도록 돕는다.
 
 ## 15.3 Semi-Supervised Disentangling of Causal Factors
-좋은 표현은 무엇이고, 어떻게 구할 수 있을까?
+좋은 표현은 무엇이고, 어떻게 구할 수 있을까? 
+원인(casual factor) 분리는 주어진 변수들과 그들의 인과 관계를 파악하여 인과 추론이나 그래프 모델들에 사용된다. Probabilistic Graphical Models에서는 변수들 간의 인과 관계를 나타내는 그래프 구조로 모델링하여 데이터의 복잡성을 낮춘다.
 
 ## 15.4 Distributed Representation
+분산 표현에서는 서로 다른 특징들을 가진 요소들의 조합으로 표현이 구성된다. 유사한 특징을 가진 데이터끼리 정보를 공유할 수 있게 된다. 자연어 처리에서는 이러한 공유 특성(shared feature)에 의한 일반화를 사용해 새로운 입력 단어의 의미를 추론할 수 있다.
+따라서 적은 수의 매개변수를 이용해서 다양한 표현들을 도출할 수 있고, 이러한 표현들은 모델이 스스로 만들어낸 것이다. 특히 서로 다른 특징들이 다른 모든 특징들을 확인하지 않고도 각각을 학습한다는 점이 핵심이다. 이러한 통계적 분리성(seprability) 덕분에 새로운 특징들도 잘 일반화한다.
+
+반면 비분산 표현에서는 전체 표현을 이루는 개별 요소들이 단일 특징을 가진다. one-hot encoding이 대표적인 예이다. 비분산 표현에 기초한 학습 알고리즘에는 k-mean clustering or neighborhood, decision tree, gaussian mixtures, kernel machine, n-gram based model 등이 있다.
 
 ## 15.5 Exponential Gains from Depth
 ## 15.6 Providing Clues to Discover Underlying Causes
+
 
 ## Questions
 **Q1.** 15.1.1에서 극소점을 접근할 수 없는 사례들을 설명했는데, 수학적으로 이해를 하지 못했습니다. "for example, a region that is surrounded by areas where the cost function varies so much from one example to another that minibatches give only a very noisy estimate of the gradient, or a region surrounded by areas where the Hessian matrix is so poorly conditioned that gradient descent methods must use very small steps" 부연 설명이 가능할까요?    <br>
