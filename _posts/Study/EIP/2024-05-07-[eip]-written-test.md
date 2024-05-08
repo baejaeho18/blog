@@ -56,8 +56,9 @@ DD(Data Dictionary)는 DFD의 자료를 설명한 메타데이터를 기록한�
 
 * UI : 사용자 인터페이스는 만족도에 가장 큰 영향을 끼쳐 변경이 가장 잦다.
 크게 CommandLI, GraphicalUI, NaturalUI, VoiceUI, OrganicUI 등으로 나뉜다.
-실사용자 입장에서 사용하기 쉽고, 오류파악이 쉽도록 검증해야 한다.
 UI 설계 도구에는 Wireframe, Mockup, Story-Board, Prototype, Use-case 등이 있다.
+
+실사용자 입장에서 사용하기 쉽고, 오류파악이 쉽도록 검증해야 한다. 이를 위해 기능성, 신뢰성, 사용성, 효율성, 유지보수성, 이식성 등의 품질 요구사항이 존재한다.
 
 
 
