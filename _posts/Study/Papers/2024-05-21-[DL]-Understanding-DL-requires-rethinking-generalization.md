@@ -28,16 +28,20 @@ tags: ai paper
 정규화를 포함하거나 포함하지 않고 동일한 모델과 데이터셋을 학습시켜보기도 했습니다.
 사용된 정규화 기법에는 Data augmentation, weight decay, drop-out이 있었습니다.
 
-## Finding
+## Result
 어떤 방식을 취해도 학습시간에 차이가 있을 뿐, train error는 0으로 수렴합니다.
+이는 모델이 'learning'이 아니라 'memorizing' 한다는 것을 뜻합니다.
+
+## Finding
 정규화는 분명 accuracy 그래프에서 noise를 줄여 smoothing한 양상을 보입니다. 
-또한 weight decay보다 data augmentation이 유용하며, early stopping과 batch normalization이 generalization에 약간 도움을 주는 것은 맞습니다.
+또한 weight decay나 dropout보다 data augmentation이 유용하며, early stopping과 batch normalization이 generalization에 약간 도움을 주는 것은 맞습니다.
 그러나 정규화가 적용되지 않았을 때도, 비슷한 성능을 유지합니다.
 오히려 어떤 정규화를 사용하느냐보다, 어떤 모델을 사용하느냐가 훨씬 중요해보입니다.
 
+문제는 CNN 모델이 학습을 넘어서 암기(memorize)하기 충분한 capacity를 가진 것으로 보인다는 점입니다.
 본 연구는 정규화가 일반화에 필수적이지 않다는 사실을 밝혔습니다.
-오랫동안 일반화 성능을 높이기 위해 정규화를 잘 시키는 것이 해답이라고 생각했습니다. 
 
+이곳은 즉독정리용 공간이기 때문에, 정확한 정보는 [Slides]로 가야한다.
 
  
 
@@ -45,3 +49,4 @@ tags: ai paper
 [논문]: https://arxiv.org/abs/1611.03530
 [Representation]: https://baejaeho18.github.io/study/DL-representative-learing.html
 [Adversarial]: 
+[Slides]: https://docs.google.com/presentation/d/1xcbFpkXQFZedyOXFfaphjMl-3s75PaqodLpuuq8LNus/edit?usp=sharing
