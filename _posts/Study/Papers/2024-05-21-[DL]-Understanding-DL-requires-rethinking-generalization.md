@@ -48,5 +48,5 @@ tags: ai paper
 <!-- Links -->
 [논문]: https://arxiv.org/abs/1611.03530
 [Representation]: https://baejaeho18.github.io/study/DL-representative-learing.html
-[Adversarial]: 
+[Adversarial]: https://baejaeho18.github.io/study/DL-Explaining_and_Harnessing_adversarial_examples.html
 [Slides]: https://docs.google.com/presentation/d/1xcbFpkXQFZedyOXFfaphjMl-3s75PaqodLpuuq8LNus/edit?usp=sharing
