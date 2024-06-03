@@ -18,6 +18,7 @@ NLP에 필요한 데이터 수집 및 모델링도 경험한다면 우대사항�
 또한, Linux/Unix와 Docker 환경을 주로 사용할 것이고, 협업(git, 코드리뷰)을 중요시하는 것으로 보인다.
 
 [MindManager]를 활용해서 정리해봤다.
+![mindmap](/assets/img/2024-06-03/지원서.png)
 
 
 <!-- Links -->
