@@ -1,32 +1,44 @@
 ---
 layout: post
-title: "[GIT Inst] push할 때마다 username/password 입력 안하는 방법"
+title: "[Cmd Inst] 쉘 프롬프트에서 긴 경로 축약하는 방법"
 category: study
 tags: instructions
 ---
 
-본래 사용하던 환경이 아닐 경우, 귀찮은 일들을 해야한다.
-라이브러리 설치 받고, 도구들 다운 받고, 업데이트하고.. git login도 다시 해줘야한다.
-
-그중 push 할 때마다, username과 password(keychain)을 입력하지 않게하는 방법을 정리하겠다.
-먼저, keychain은 github.com의 setting/developer_setting에서 token-generate로 얻는다는 것을 잊지말자.
-
-시작!
+쉘 프롬프트에서 디렉토리를 타고타고타고 들어가다보면 $ 앞이 끝없이 길어질 때가 있다.
 ```script
-git config --global user.name "github_id"
-git config --global user.email "github_email"
-git config credential.helper store --global
+bjho@BJH:/mnt/c/Users/bjh17/Projects$ cd code
+bjho@BJH:/mnt/c/Users/bjh17/Projects/code$ cd 0-Education/
+bjho@BJH:/mnt/c/Users/bjh17/Projects/code/0-Education$ cd SystemProgramming/
+bjho@BJH:/mnt/c/Users/bjh17/Projects/code/0-Education/SystemProgramming$ ls
+Dive-into-Systems-ch3
+bjho@BJH:/mnt/c/Users/bjh17/Projects/code/0-Education/SystemProgramming$ cd
+ Dive-into-Systems-ch3/
+bjho@BJH:/mnt/c/Users/bjh17/Projects/code/0-Education/SystemProgramming/Dive-into-Systems-ch3$ ls
+a.exe  badprog.c  segfault.c
 ```
-여기까지가 기본 세팅이다.
-한번은 push하면서 username, password를 입력해야하니, push를 해주자.
+프롬프토 형식을 담당하는 PS1 환경변수롤 조작하여 저 긴 거를 줄여보도록 하겠다.
 ```script
-git push origin main
-username :
-password : 
-git config credential.helper store --global
+bjho@BJH:/mnt/c/Users/bjh17/Projects/code/0-Education/SystemProgramming/Dive-into-Systems-ch3$ export PS1='\u@\h:\W$ '
+bjho@BJH:/Dive-into-Systems-ch3$ export PS1='$(basename `pwd`)$ '
+Dive-into-Systems-ch3$ 
 ```
-입력을 완료했다면, 이제 원격으로 push해도 id와 pwd를 안쳐도 된다.
+여기서 \W는 현재 디렉토리의 이름만 표시하며, \u는 사용자 이름, \h는 호스트 이름을 나타낸다.
+
+그런데, 위의 예시에서는 잘 드러나지 않았지만 기존에는 $ 앞부분이 뒷부분의 입력부와 다른 색상이어서 명확하게 구분이 되었는데 바꾼 후로는 동일하게 하얀글자로 표기된다.
+
+이런 불편함은 참을 수 없지.
+이스케이프 시퀀스를 사용하여 색상을 추가하였다.
+```script
+Dive-into-Systems-ch3$ export PS1='\[\e[34m\]\W\[\e[0m\]$ '
+```
+\[\e[34m\]는 파란색 텍스트를 의미하고, \[\e[0m\]는 색상을 초기화한다.
+
+물론, 나중에는 본래대로 되돌리고 싶어할 수 있다.
+그때를 대비하여 모든 경로를 출력하도록 하는 명령어를 아래 남겨두겠다.
+```script
+export PS1='\u@\h:\w\$ '
+```
+\w는 현재 작업 디렉토리 전체 경로를 의미한다.
 
 끝!!
-
-<!-- Links -->
